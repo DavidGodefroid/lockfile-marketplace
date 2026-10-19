@@ -1,0 +1,48 @@
+name: pages
+
+# Deploys the index.json that release.yml built and signed. It runs on the
+# default branch after a successful release run and never signs anything
+# itself: the signature lockfile verifies is release.yml's.
+on:
+  workflow_run:
+    workflows: [release]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: deploy the signed index to GitHub Pages
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read # the artifact of the release run
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          name: index
+          path: index
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - uses: sigstore/cosign-installer@v3
+      - name: verify before publishing
+        run: |
+          cosign verify-blob --bundle index/index.json.sigstore.json \
+            --certificate-identity-regexp '^https://github\.com/DavidGodefroid/lockfile-marketplace/\.github/workflows/release\.yml@refs/tags/' \
+            --certificate-oidc-issuer https://token.actions.githubusercontent.com index/index.json
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: index
+      - id: deployment
+        uses: actions/deploy-pages@v5
