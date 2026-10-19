@@ -1,0 +1,88 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test
+    # The conformance tests run every plugin in the lockfile sandbox, which
+    # needs Landlock and seccomp from the kernel.
+    runs-on: ubuntu-24.04
+    env:
+      CGO_ENABLED: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version: "1.26.x"
+          check-latest: true
+      - name: every plugin is in go.work
+        shell: bash
+        run: |
+          status=0
+          for d in plugins/*/; do
+            grep -qx "	./${d%/}" go.work || { echo "::error::${d%/} is missing from go.work"; status=1; }
+          done
+          exit $status
+      - name: gofmt
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+      - name: go mod verify, go vet
+        shell: bash
+        run: |
+          for d in $(go list -m -f '{{.Dir}}'); do
+            (cd "$d" && go mod verify && go vet ./...)
+          done
+      - name: build plugins
+        shell: bash
+        run: |
+          for d in plugins/*/; do
+            (cd "$d" && go build -trimpath -o /dev/null .)
+          done
+      - name: importcheck
+        run: go run ./scripts/importcheck
+      - name: version rules (relcheck)
+        run: |
+          git fetch --tags --quiet origin
+          go run ./scripts/relcheck all
+      - name: go test
+        shell: bash
+        run: |
+          set -o pipefail
+          status=0
+          for d in $(go list -m -f '{{.Dir}}'); do
+            (cd "$d" && go test ./... 2>&1) | tee -a test.log || status=1
+          done
+          if [ $status -ne 0 ]; then
+            grep -E -- '--- FAIL|_test\.go:[0-9]+:|^FAIL|panic:' test.log | head -40 | sed 's/^/::error::/'
+          fi
+          exit $status
+
+  lint:
+    name: lint (staticcheck, govulncheck)
+    runs-on: ubuntu-latest
+    env:
+      CGO_ENABLED: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version: "1.26.x"
+          check-latest: true
+      - name: install tools
+        run: |
+          go install honnef.co/go/tools/cmd/staticcheck@v0.8.1
+          go install golang.org/x/vuln/cmd/govulncheck@v1.8.0
+      - name: staticcheck, govulncheck
+        shell: bash
+        run: |
+          status=0
+          for d in $(go list -m -f '{{.Dir}}'); do
+            (cd "$d" && staticcheck ./... && govulncheck ./...) || status=1
+          done
+          exit $status

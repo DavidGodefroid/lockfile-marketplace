@@ -1,0 +1,8 @@
+name = "pdf.has-blank-page"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF have at least one page that paints nothing visible?"
+one  = "at least one page has no painting operator, or only full-page white fills"
+zero = "every page paints something"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

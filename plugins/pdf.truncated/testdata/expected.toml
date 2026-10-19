@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "good.pdf"
+answer = 0
+
+[[case]]
+file = "eol-after-eof.pdf"
+answer = 0
+
+[[case]]
+file = "cut-eof.pdf"
+answer = 1
+
+[[case]]
+file = "cut-half.pdf"
+answer = 1
+
+[[case]]
+file = "startxref-to-garbage.pdf"
+answer = 1
+
+[[case]]
+file = "junk-after-eof.pdf"
+answer = 1

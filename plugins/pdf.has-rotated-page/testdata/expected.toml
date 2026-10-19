@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-rotate.pdf"
+answer = 0
+
+[[case]]
+file = "rotate-0.pdf"
+answer = 0
+
+[[case]]
+file = "rotate-90-page-2-of-3.pdf"
+answer = 1
+
+[[case]]
+file = "rotate-minus-90.pdf"
+answer = 1
+
+[[case]]
+file = "rotate-360.pdf"
+answer = 0
+
+[[case]]
+file = "rotate-90-on-pages-node.pdf"
+answer = 1

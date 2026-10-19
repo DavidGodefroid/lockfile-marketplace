@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "fresh.pdf"
+answer = 0
+
+[[case]]
+file = "one-update.pdf"
+answer = 1
+
+[[case]]
+file = "two-updates.pdf"
+answer = 1
+
+[[case]]
+file = "xref-stream.pdf"
+answer = 0
+
+[[case]]
+file = "xref-stream-update.pdf"
+answer = 1
+
+[[case]]
+file = "linearized.pdf"
+answer = 0
+
+[[case]]
+file = "linearized-update.pdf"
+answer = 1
+
+[[case]]
+file = "hybrid.pdf"
+answer = 0

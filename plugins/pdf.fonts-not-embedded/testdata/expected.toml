@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "helvetica.pdf"
+answer = 1
+
+[[case]]
+file = "embedded-ttf.pdf"
+answer = 0
+
+[[case]]
+file = "unembedded-ttf.pdf"
+answer = 1
+
+[[case]]
+file = "type0-embedded.pdf"
+answer = 0
+
+[[case]]
+file = "type0-unembedded.pdf"
+answer = 1
+
+[[case]]
+file = "no-fonts.pdf"
+answer = 0

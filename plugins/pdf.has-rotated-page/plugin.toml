@@ -1,0 +1,8 @@
+name = "pdf.has-rotated-page"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF have at least one page with a /Rotate other than 0?"
+one  = "at least one page's effective /Rotate (inherited from the page tree, taken modulo 360) is 90, 180 or 270"
+zero = "every page has an effective /Rotate of 0 or none"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

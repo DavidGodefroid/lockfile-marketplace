@@ -1,0 +1,155 @@
+name: release
+
+# A maintainer pushes a tag <plugin>/vX.Y.Z on a commit of main. The check
+# job (no write permission, no signing token) verifies the tag and runs the
+# plugin's tests; the plugin job then builds that plugin from the tagged
+# source, signs every artifact with cosign keyless (identity: this file on
+# that tag) and publishes a GitHub release; the index job rebuilds
+# index.json from all releases, verifying every asset's signature against
+# its own tag, and signs it. pages.yml deploys the signed index.
+#
+# To re-sign the index alone (after marking a release "[yanked] ..."), run
+# this workflow by hand on a tag ref: on a branch ref the signature would not
+# match the identity lockfile pins, and the index job refuses to run.
+on:
+  push:
+    tags: ["*/v*"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  CGO_ENABLED: "0"
+  IDENTITY: '^https://github\.com/DavidGodefroid/lockfile-marketplace/\.github/workflows/release\.yml@refs/tags/'
+  ISSUER: https://token.actions.githubusercontent.com
+
+jobs:
+  check:
+    name: check the tag and test the plugin
+    if: github.event_name == 'push'
+    runs-on: ubuntu-24.04
+    outputs:
+      name: ${{ steps.meta.outputs.name }}
+      version: ${{ steps.meta.outputs.version }}
+    env:
+      TAG: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0 # main and every tag, for the ancestry and version checks
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version: "1.26.x"
+          check-latest: true
+      - name: the tagged commit is on main
+        run: |
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main || {
+            echo "::error::$TAG points at a commit that is not on main"; exit 1; }
+      - name: name, version and question rules
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+          go run ./scripts/relcheck tag "$TAG"
+          echo "name=${TAG%/v*}" >> "$GITHUB_OUTPUT"
+          echo "version=${TAG##*/v}" >> "$GITHUB_OUTPUT"
+      - name: test the plugin
+        working-directory: plugins/${{ steps.meta.outputs.name }}
+        run: go test ./...
+
+  plugin:
+    name: build, sign and release the plugin
+    needs: check
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write # create the release and upload assets
+      id-token: write # cosign keyless signing (GitHub OIDC)
+    env:
+      TAG: ${{ github.ref_name }}
+      NAME: ${{ needs.check.outputs.name }}
+      VERSION: ${{ needs.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version: "1.26.x"
+          check-latest: true
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.1.3 # cosign v3 writes the bundle format lockfile users verify
+      - name: build
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          for p in linux/amd64 linux/arm64 darwin/amd64 darwin/arm64; do
+            os="${p%/*}"; arch="${p#*/}"
+            (cd "plugins/$NAME" && GOOS="$os" GOARCH="$arch" go build -trimpath -ldflags "-s -w -buildid=" -o "../../dist/$NAME-$VERSION-$os-$arch" .)
+          done
+          cp "plugins/$NAME/plugin.toml" dist/plugin.toml
+      - name: sign
+        shell: bash
+        run: |
+          set -euo pipefail
+          exact="${IDENTITY}${TAG//./\\.}\$"
+          for f in dist/*; do
+            cosign sign-blob --yes --bundle "$f.sigstore.json" "$f"
+            cosign verify-blob --bundle "$f.sigstore.json" --certificate-identity-regexp "$exact" --certificate-oidc-issuer "$ISSUER" "$f"
+          done
+      - name: checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          (cd dist && sha256sum -- * > ../SHA256SUMS)
+          mv SHA256SUMS dist/SHA256SUMS
+      - name: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$TAG" dist/* --verify-tag --title "$NAME $VERSION" \
+            --notes "Built from \`$TAG\` by release.yml, signed with cosign keyless. Install with \`lockfile plugin install $NAME@$VERSION\`."
+
+  index:
+    name: build and sign index.json
+    needs: plugin
+    if: always() && (needs.plugin.result == 'success' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-24.04
+    # Several tags pushed together: each plugin job runs; a pending index
+    # job is replaced by a newer one, which rebuilds from all releases.
+    concurrency:
+      group: index
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: refuse a branch ref
+        if: github.ref_type != 'tag'
+        run: |
+          echo "::error::run on a tag ref: the index signature must match release.yml@refs/tags/"
+          exit 1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version: "1.26.x"
+          check-latest: true
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.1.3
+      - name: releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --paginate "repos/$GITHUB_REPOSITORY/releases" > releases.json
+      - name: index.json (every asset verified against its own tag)
+        working-directory: cmd/indexgen
+        run: go run . -releases ../../releases.json -out ../../index/index.json
+      - name: sign
+        run: |
+          cosign sign-blob --yes --bundle index/index.json.sigstore.json index/index.json
+          cosign verify-blob --bundle index/index.json.sigstore.json --certificate-identity-regexp "$IDENTITY" --certificate-oidc-issuer "$ISSUER" index/index.json
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
+        with:
+          name: index
+          path: index/
+          if-no-files-found: error

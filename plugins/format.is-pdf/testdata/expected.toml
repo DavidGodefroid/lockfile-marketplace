@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "blank.pdf"
+answer = 1
+
+[[case]]
+file = "header-at-1000.bin"
+answer = 1
+
+[[case]]
+file = "header-at-2000.bin"
+answer = 0
+
+[[case]]
+file = "pdf-without-dash.bin"
+answer = 0
