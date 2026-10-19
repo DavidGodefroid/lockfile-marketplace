@@ -84,6 +84,36 @@ func rectOf(ctx *model.Context, o types.Object) (Rect, error) {
 	return Rect{v[0], v[1], v[2], v[3]}.norm(), nil
 }
 
+// ErrInvalidRotate: a /Rotate that is not a multiple of 90.
+var ErrInvalidRotate = errors.New("pdfx: /Rotate is not a multiple of 90")
+
+// PageRotate returns the raw inherited /Rotate of page (1-based), 0 when
+// absent.
+func PageRotate(ctx *model.Context, page int) (r int, err error) {
+	defer catch(&err)
+	d, _, _, err := ctx.PageDict(context.Background(), page, false)
+	if err != nil {
+		return 0, err
+	}
+	o, err := inherited(ctx, d, "Rotate")
+	if err != nil || o == nil {
+		return 0, err
+	}
+	i, err := ctx.DereferenceInteger(o)
+	if err != nil || i == nil {
+		return 0, ErrInvalidRotate
+	}
+	return i.Value(), nil
+}
+
+// NormRotate maps r to 0, 90, 180 or 270.
+func NormRotate(r int) (int, error) {
+	if r%90 != 0 {
+		return 0, ErrInvalidRotate
+	}
+	return ((r % 360) + 360) % 360, nil
+}
+
 // PageBox returns the visible box of page (1-based): the inherited crop
 // box clipped to the inherited media box, or the media box, scaled by the
 // page's /UserUnit.
