@@ -10,5 +10,6 @@ use (
 	./plugins/pdf.has-blank-page
 	./plugins/pdf.parses
 	./plugins/pdf.truncated
+	./scripts/importcheck
 	./sdk
 )
