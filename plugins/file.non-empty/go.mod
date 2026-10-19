@@ -3,7 +3,7 @@ module github.com/DavidGodefroid/lockfile-marketplace/plugins/file.non-empty
 go 1.26.0
 
 require (
-	github.com/DavidGodefroid/lockfile v0.0.0-20261019171345-abf57470a87e
+	github.com/DavidGodefroid/lockfile v0.1.0
 	github.com/DavidGodefroid/lockfile-marketplace/lib/pdfx v0.0.0
 	github.com/DavidGodefroid/lockfile-marketplace/sdk v0.0.0
 )
