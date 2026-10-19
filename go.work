@@ -8,6 +8,7 @@ use (
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
 	./plugins/pdf.has-blank-page
+	./plugins/pdf.has-non-a4-page
 	./plugins/pdf.parses
 	./plugins/pdf.truncated
 	./scripts/importcheck

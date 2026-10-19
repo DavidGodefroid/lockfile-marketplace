@@ -47,10 +47,23 @@ func catch(err *error) {
 	}
 }
 
+// read reads without validating (PageCount is set).
+func read(r io.ReadSeeker) (ctx *model.Context, err error) {
+	defer catch(&err)
+	ctx, err = api.ReadContext(context.Background(), r, config())
+	if err != nil {
+		return nil, err
+	}
+	if err := ctx.EnsurePageCount(); err != nil {
+		return nil, err
+	}
+	return ctx, nil
+}
+
 // Open reads and validates a PDF in pdfcpu's relaxed mode.
 func Open(r io.ReadSeeker) (ctx *model.Context, err error) {
 	defer catch(&err)
-	ctx, err = api.ReadContext(context.Background(), r, config())
+	ctx, err = read(r)
 	if err != nil {
 		return nil, err
 	}
