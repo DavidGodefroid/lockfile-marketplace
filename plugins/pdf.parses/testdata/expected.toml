@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "blank.pdf"
+answer = 1
+
+[[case]]
+file = "text.pdf"
+answer = 1
+
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "garbage.pdf"
+answer = 0

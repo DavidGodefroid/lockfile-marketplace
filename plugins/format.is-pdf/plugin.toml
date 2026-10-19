@@ -1,0 +1,8 @@
+name = "format.is-pdf"
+version = "1.0.0"
+protocol = 1
+question = "Does the file start like a PDF?"
+one = "`%PDF-` appears within the first 1024 bytes"
+zero = "no PDF header"
+accepts = ["*/*"]
+limits = { cpu_s = 5, memory = "128MiB", timeout_s = 10 }

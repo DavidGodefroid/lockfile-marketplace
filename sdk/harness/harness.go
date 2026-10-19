@@ -102,6 +102,50 @@ func Verify(pluginDir string) error {
 	return fuzz(ctx, bin, m, fixtures)
 }
 
+// CheckNoAnswer runs NoAnswer and fails t with its error.
+func CheckNoAnswer(t *testing.T, pluginDir string, inputs map[string][]byte) {
+	t.Helper()
+	if err := NoAnswer(pluginDir, inputs); err != nil {
+		t.Fatal(err)
+	}
+}
+
+// NoAnswer checks that the plugin gives no answer, and fails cleanly (exit
+// status, no hang, no signal), on each input: the cases its question does
+// not cover, such as a file that is not a PDF.
+func NoAnswer(pluginDir string, inputs map[string][]byte) error {
+	dir, err := filepath.Abs(pluginDir)
+	if err != nil {
+		return err
+	}
+	mb, err := os.ReadFile(filepath.Join(dir, "plugin.toml"))
+	if err != nil {
+		return err
+	}
+	m, err := pluginspec.ParseManifest(mb)
+	if err != nil {
+		return err
+	}
+	bin, cleanup, err := build(dir)
+	if err != nil {
+		return err
+	}
+	defer cleanup()
+	var errs []error
+	for name, in := range inputs {
+		o, rep, err := run(context.Background(), bin, in, m.Limits)
+		switch {
+		case err != nil:
+			errs = append(errs, fmt.Errorf("%s: sandbox: %w", name, err))
+		case o.Answer != nil:
+			errs = append(errs, fmt.Errorf("%s: want no answer, answered %v", name, *o.Answer))
+		case o.Cause != pluginspec.CauseExitCode:
+			errs = append(errs, fmt.Errorf("%s: want a clean failure, got %s (exit %d, signal %q)", name, o.Cause, rep.ExitCode, rep.Signal))
+		}
+	}
+	return errors.Join(errs...)
+}
+
 func readExpected(path string) ([]Case, error) {
 	var e expected
 	md, err := toml.DecodeFile(path, &e)
@@ -137,7 +181,7 @@ func build(dir string) (string, func(), error) {
 	}
 	cleanup := func() { os.RemoveAll(tmp) }
 	out := filepath.Join(tmp, "plugin")
-	cmd := exec.Command("go", "build", "-trimpath", "-o", out, ".")
+	cmd := exec.Command("go", "build", "-trimpath", "-buildvcs=false", "-o", out, ".")
 	cmd.Dir = dir
 	cmd.Env = append(os.Environ(), "CGO_ENABLED=0")
 	if b, err := cmd.CombinedOutput(); err != nil {

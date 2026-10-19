@@ -1,3 +1,14 @@
 go 1.26.0
 
-use ./sdk
+use (
+	./lib/pdfx
+	./plugins/file.non-empty
+	./plugins/format.is-pdf
+	./plugins/pdf.all-pages-blank
+	./plugins/pdf.encrypted
+	./plugins/pdf.fonts-not-embedded
+	./plugins/pdf.has-blank-page
+	./plugins/pdf.parses
+	./plugins/pdf.truncated
+	./sdk
+)

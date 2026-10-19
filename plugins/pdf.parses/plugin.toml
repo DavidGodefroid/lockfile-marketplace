@@ -1,0 +1,8 @@
+name = "pdf.parses"
+version = "1.0.0"
+protocol = 1
+question = "Does the file parse as a PDF without errors?"
+one = "pdfcpu reads and validates it (relaxed mode)"
+zero = "parsing or validation fails"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

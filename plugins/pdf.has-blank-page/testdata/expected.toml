@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "blank.pdf"
+answer = 1
+
+[[case]]
+file = "text.pdf"
+answer = 0
+
+[[case]]
+file = "text-then-blank.pdf"
+answer = 1
+
+[[case]]
+file = "white-fill.pdf"
+answer = 1
+
+[[case]]
+file = "white-fill-then-text.pdf"
+answer = 0
+
+[[case]]
+file = "gray-fill.pdf"
+answer = 0
+
+[[case]]
+file = "image.pdf"
+answer = 0
+
+[[case]]
+file = "invisible-text.pdf"
+answer = 1

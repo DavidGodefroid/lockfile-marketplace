@@ -1,0 +1,8 @@
+name = "file.non-empty"
+version = "1.0.0"
+protocol = 1
+question = "Does the file contain at least one byte?"
+one = "size > 0"
+zero = "the file is empty"
+accepts = ["*/*"]
+limits = { cpu_s = 5, memory = "128MiB", timeout_s = 10 }

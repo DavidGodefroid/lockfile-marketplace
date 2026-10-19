@@ -1,0 +1,8 @@
+name = "test.fails"
+version = "1.0.0"
+protocol = 1
+question = "Does the file start with Y?"
+one = "the first byte is Y"
+zero = "never: any other file is a failure"
+accepts = ["*/*"]
+limits = { cpu_s = 2, memory = "128MiB", timeout_s = 2 }
