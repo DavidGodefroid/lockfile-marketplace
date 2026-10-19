@@ -17,6 +17,10 @@ The reviewer checks what CI cannot:
 
 - [ ] The question is about the format, structure, integrity or rendering
       of the file, never about what its content means or says.
+- [ ] No threshold families: a plugin may fix one canonical threshold in its
+      question; a series of the same question at several thresholds is
+      refused, because combined in one plan it becomes a binary search on a
+      value of the file.
 - [ ] The code answers exactly the stated question, nothing more, nothing
       else.
 - [ ] `one` and `zero` are unambiguous: a reader knows what each answer
