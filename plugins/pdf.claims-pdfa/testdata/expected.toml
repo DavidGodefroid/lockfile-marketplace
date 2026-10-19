@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-metadata.pdf"
+answer = 0
+
+[[case]]
+file = "xmp-without-pdfaid.pdf"
+answer = 0
+
+[[case]]
+file = "pdfaid-element.pdf"
+answer = 1
+
+[[case]]
+file = "pdfaid-attribute.pdf"
+answer = 1
+
+[[case]]
+file = "pdfaid-other-prefix.pdf"
+answer = 1
+
+[[case]]
+file = "pdfaid-wrong-namespace.pdf"
+answer = 0
+
+[[case]]
+file = "pdfaid-utf16.pdf"
+answer = 1

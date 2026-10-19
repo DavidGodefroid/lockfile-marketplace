@@ -5,6 +5,7 @@ use (
 	./plugins/file.non-empty
 	./plugins/format.is-pdf
 	./plugins/pdf.all-pages-blank
+	./plugins/pdf.claims-pdfa
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
 	./plugins/pdf.has-blank-page
