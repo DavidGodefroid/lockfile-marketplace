@@ -8,6 +8,7 @@ use (
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
 	./plugins/pdf.has-blank-page
+	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript
 	./plugins/pdf.has-non-a4-page
 	./plugins/pdf.has-rotated-page
