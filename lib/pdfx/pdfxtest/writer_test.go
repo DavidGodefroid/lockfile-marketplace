@@ -2,6 +2,7 @@ package pdfxtest_test
 
 import (
 	"bytes"
+	"fmt"
 	"strings"
 	"testing"
 
@@ -40,6 +41,114 @@ func TestWriteParses(t *testing.T) {
 				t.Fatalf("PageCount %d", ctx.PageCount)
 			}
 		})
+	}
+}
+
+func TestWriteParsesLayouts(t *testing.T) {
+	base := pdfxtest.Pages("text", "image")
+	base.Objects = append(base.Objects, "<< /S /JavaScript /JS (sample) >>")
+	for name, mod := range map[string]func(*pdfxtest.Doc){
+		"xref stream":               func(d *pdfxtest.Doc) { d.XRefStream = true },
+		"object stream":             func(d *pdfxtest.Doc) { d.ObjStream = true },
+		"hybrid":                    func(d *pdfxtest.Doc) { d.Hybrid = true },
+		"linearized":                func(d *pdfxtest.Doc) { d.Linearized = true },
+		"object stream, linearized": func(d *pdfxtest.Doc) { d.ObjStream, d.Linearized = true, true },
+	} {
+		t.Run(name, func(t *testing.T) {
+			d := base
+			mod(&d)
+			b := pdfxtest.Write(d)
+			ctx, err := pdfx.Open(bytes.NewReader(b))
+			if err != nil {
+				t.Fatalf("%v\n%q", err, b)
+			}
+			if ctx.PageCount != 2 {
+				t.Fatalf("PageCount %d", ctx.PageCount)
+			}
+			if got, err := pdfx.PagePaints(ctx, 1); err != nil || !got {
+				t.Fatalf("page 1 paints = %v, %v", got, err)
+			}
+		})
+	}
+}
+
+// lastStartXRef returns the offset after the last startxref keyword.
+func lastStartXRef(t *testing.T, b []byte) int {
+	t.Helper()
+	i := bytes.LastIndex(b, []byte("startxref"))
+	if i < 0 {
+		t.Fatal("no startxref")
+	}
+	var off int
+	if _, err := fmt.Sscan(string(b[i+len("startxref"):]), &off); err != nil {
+		t.Fatal(err)
+	}
+	return off
+}
+
+// prevAt returns the /Prev of the section at off, or -1.
+func prevAt(t *testing.T, b []byte, off int) int {
+	t.Helper()
+	end := bytes.Index(b[off:], []byte(">>"))
+	sec := string(b[off : off+end])
+	i := strings.Index(sec, "/Prev ")
+	if i < 0 {
+		return -1
+	}
+	var p int
+	fmt.Sscan(sec[i+len("/Prev "):], &p)
+	return p
+}
+
+func TestAppendUpdateChains(t *testing.T) {
+	for _, xs := range []bool{false, true} {
+		d := pdfxtest.Pages("text")
+		d.XRefStream = xs
+		orig := pdfxtest.Write(d)
+		old := lastStartXRef(t, orig)
+		upd := pdfxtest.AppendUpdate(orig, []string{"<< /Producer (sample) >>"}, "/Info {{obj 0}}")
+		if !bytes.HasPrefix(upd, orig) {
+			t.Fatal("update does not append")
+		}
+		newOff := lastStartXRef(t, upd)
+		if newOff <= len(orig) || prevAt(t, upd, newOff) != old {
+			t.Fatalf("xref stream %v: new section at %d, /Prev %d, want %d", xs, newOff, prevAt(t, upd, newOff), old)
+		}
+		if _, err := pdfx.Open(bytes.NewReader(upd)); err != nil {
+			t.Fatalf("xref stream %v: %v", xs, err)
+		}
+		twice := pdfxtest.AppendUpdate(upd, nil, "")
+		if prevAt(t, twice, lastStartXRef(t, twice)) != newOff {
+			t.Fatal("second update does not chain to the first")
+		}
+	}
+}
+
+func TestLinearizedLayout(t *testing.T) {
+	d := pdfxtest.Pages("text", "blank")
+	d.Linearized = true
+	b := pdfxtest.Write(d)
+	first := bytes.Index(b, []byte(" obj"))
+	if first < 0 || first > 1024 || !bytes.Contains(b[first:first+200], []byte("/Linearized")) {
+		t.Fatalf("first object is not the linearization dict:\n%q", b[:200])
+	}
+	fp := lastStartXRef(t, b)
+	main := prevAt(t, b, fp)
+	if main <= fp || prevAt(t, b, main) != -1 {
+		t.Fatalf("first-page section at %d, main at %d", fp, main)
+	}
+}
+
+func TestHybrid(t *testing.T) {
+	d := pdfxtest.Pages("text")
+	d.Hybrid = true
+	b := pdfxtest.Write(d)
+	off := lastStartXRef(t, b)
+	if !bytes.HasPrefix(b[off:], []byte("xref")) {
+		t.Fatal("hybrid file must end with a classic table")
+	}
+	if !bytes.Contains(b[off:], []byte("/XRefStm ")) {
+		t.Fatal("no /XRefStm in the trailer")
 	}
 }
 

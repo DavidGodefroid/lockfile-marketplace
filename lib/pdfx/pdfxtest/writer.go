@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 	"testing"
@@ -46,6 +47,18 @@ type Doc struct {
 	Catalog     map[string]string // extra raw catalog entries, key with its slash
 	Objects     []string          // extra objects, raw; referenced as {{obj i}}
 	Metadata    []byte            // catalog XMP metadata stream
+
+	// Layout. XRefStream writes cross-reference streams instead of classic
+	// tables; ObjStream (which implies XRefStream) puts every non-stream
+	// object in one object stream; Hybrid writes a classic table whose
+	// trailer has /XRefStm; Linearized starts the file with a linearization
+	// dictionary and a first-page section that the last startxref points to,
+	// whose /Prev is the main section. The linearization is structural only
+	// (no hint stream).
+	XRefStream bool
+	ObjStream  bool
+	Hybrid     bool
+	Linearized bool
 }
 
 // Raw fonts and font builders.
@@ -192,24 +205,241 @@ func Write(d Doc) []byte {
 	pages.WriteString(" >>")
 	bodies[1] = pages.String()
 
-	var out bytes.Buffer
-	out.WriteString("%PDF-1.7\n%\xe2\xe3\xcf\xd3\n")
-	offsets := make([]int, len(bodies))
 	for i, body := range bodies {
-		body = objRef.ReplaceAllStringFunc(body, func(m string) string {
-			n, _ := strconv.Atoi(objRef.FindStringSubmatch(m)[1])
-			return fmt.Sprintf("%d 0 R", first+n)
-		})
-		offsets[i] = out.Len()
-		fmt.Fprintf(&out, "%d 0 obj\n%s\nendobj\n", i+1, body)
+		bodies[i] = resolve(body, first)
 	}
-	xref := out.Len()
-	fmt.Fprintf(&out, "xref\n0 %d\n0000000000 65535 f \n", len(bodies)+1)
-	for _, off := range offsets {
-		fmt.Fprintf(&out, "%010d 00000 n \n", off)
+	return serialize(d, bodies, len(d.Pages))
+}
+
+func resolve(body string, first int) string {
+	return objRef.ReplaceAllStringFunc(body, func(m string) string {
+		n, _ := strconv.Atoi(objRef.FindStringSubmatch(m)[1])
+		return fmt.Sprintf("%d 0 R", first+n)
+	})
+}
+
+// entry is one cross-reference entry: type 0 free, 1 at an offset, 2 in an
+// object stream (f2 = stream number, f3 = index).
+type entry struct {
+	typ byte
+	f2  int
+	f3  int
+}
+
+type out struct{ bytes.Buffer }
+
+func (w *out) object(num int, body string) int {
+	off := w.Len()
+	fmt.Fprintf(w, "%d 0 obj\n%s\nendobj\n", num, body)
+	return off
+}
+
+// runs returns the contiguous runs of the sorted object numbers.
+func runs(nums []int) [][2]int {
+	var out [][2]int
+	for _, n := range nums {
+		if l := len(out); l > 0 && out[l-1][0]+out[l-1][1] == n {
+			out[l-1][1]++
+		} else {
+			out = append(out, [2]int{n, 1})
+		}
 	}
-	fmt.Fprintf(&out, "trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n", len(bodies)+1, xref)
-	return out.Bytes()
+	return out
+}
+
+func sortedKeys(m map[int]entry) []int {
+	keys := make([]int, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	sort.Ints(keys)
+	return keys
+}
+
+// section writes one cross-reference section with its trailer
+// dictionary entries (trailer), as a classic table or, when streamNum > 0,
+// as an xref stream object numbered streamNum (which lists itself). It
+// returns the section's offset.
+func (w *out) section(entries map[int]entry, size any, trailer string, streamNum int) int {
+	off := w.Len()
+	if streamNum > 0 {
+		entries[streamNum] = entry{1, off, 0}
+		keys := sortedKeys(entries)
+		var data bytes.Buffer
+		var index []string
+		for _, r := range runs(keys) {
+			index = append(index, fmt.Sprintf("%d %d", r[0], r[1]))
+		}
+		for _, k := range keys {
+			e := entries[k]
+			data.WriteByte(e.typ)
+			data.Write([]byte{byte(e.f2 >> 24), byte(e.f2 >> 16), byte(e.f2 >> 8), byte(e.f2)})
+			data.Write([]byte{byte(e.f3 >> 8), byte(e.f3)})
+		}
+		dict := fmt.Sprintf("<< /Type /XRef /Size %v /W [1 4 2] /Index [%s] %s >>", size, strings.Join(index, " "), trailer)
+		w.object(streamNum, Stream(dict, data.Bytes()))
+		return off
+	}
+	keys := sortedKeys(entries)
+	w.WriteString("xref\n")
+	i := 0
+	for _, r := range runs(keys) {
+		fmt.Fprintf(w, "%d %d\n", r[0], r[1])
+		for j := 0; j < r[1]; j++ {
+			e := entries[keys[i]]
+			i++
+			if e.typ == 0 {
+				fmt.Fprintf(w, "%010d %05d f \n", e.f2, e.f3)
+			} else {
+				fmt.Fprintf(w, "%010d %05d n \n", e.f2, e.f3)
+			}
+		}
+	}
+	fmt.Fprintf(w, "trailer\n<< /Size %v %s >>\n", size, trailer)
+	return off
+}
+
+func isStream(body string) bool { return strings.Contains(body, "\nstream\n") }
+
+// Placeholders patched once their value is known; same width as the
+// numbers they become (padded with spaces).
+const (
+	prevMark = "@@PREV@@"
+	lenMark  = "@@LEN@@@"
+	sizeMark = "@@SIZE@@"
+)
+
+func patch(b []byte, mark string, v int) {
+	s := strconv.Itoa(v)
+	s += strings.Repeat(" ", len(mark)-len(s))
+	if i := bytes.Index(b, []byte(mark)); i >= 0 {
+		copy(b[i:], s)
+	}
+}
+
+func serialize(d Doc, bodies []string, pages int) []byte {
+	streams := d.XRefStream || d.ObjStream
+	next := len(bodies) + 1
+	alloc := func() int { next++; return next - 1 }
+
+	var w out
+	w.WriteString("%PDF-1.7\n%\xe2\xe3\xcf\xd3\n")
+	main := map[int]entry{0: {0, 0, 65535}}
+
+	// Linearization dictionary and first-page section, at the start.
+	firstPage := -1
+	if d.Linearized {
+		lin := alloc()
+		off := w.object(lin, fmt.Sprintf("<< /Linearized 1 /L %s /H [0 0] /O 3 /E 0 /N %d /T 0 >>", lenMark, pages))
+		fp := map[int]entry{lin: {1, off, 0}}
+		fpStream := 0
+		if streams {
+			fpStream = alloc()
+		}
+		// Written before the objects exist: size and /Prev are patched.
+		firstPage = w.section(fp, sizeMark, "/Root 1 0 R /Prev "+prevMark, fpStream)
+	}
+
+	var packed []int
+	for i, body := range bodies {
+		num := i + 1
+		if d.ObjStream && !isStream(body) {
+			packed = append(packed, num)
+			continue
+		}
+		main[num] = entry{1, w.object(num, body), 0}
+	}
+	if len(packed) > 0 {
+		stm := alloc()
+		var head, data strings.Builder
+		for i, num := range packed {
+			fmt.Fprintf(&head, "%d %d ", num, data.Len())
+			data.WriteString(bodies[num-1] + "\n")
+			main[num] = entry{2, stm, i}
+		}
+		first := head.Len()
+		content := head.String() + data.String()
+		main[stm] = entry{1, w.object(stm, Stream(fmt.Sprintf("<< /Type /ObjStm /N %d /First %d >>", len(packed), first), []byte(content))), 0}
+	}
+
+	trailer := "/Root 1 0 R"
+	mainStream := 0
+	if streams {
+		mainStream = alloc()
+	}
+	if d.Hybrid && !streams {
+		hs := alloc()
+		hEntries := map[int]entry{}
+		for k, e := range main {
+			if e.typ == 1 {
+				hEntries[k] = e
+			}
+		}
+		hOff := w.section(hEntries, 0, "", hs)
+		main[hs] = entry{1, hOff, 0}
+		trailer += fmt.Sprintf(" /XRefStm %d", hOff)
+	}
+	size := next
+	mainOff := w.section(main, size, trailer, mainStream)
+	start := mainOff
+	if firstPage >= 0 {
+		start = firstPage
+	}
+	fmt.Fprintf(&w, "startxref\n%d\n%%%%EOF\n", start)
+
+	b := w.Bytes()
+	if firstPage >= 0 {
+		patch(b, prevMark, mainOff)
+		patch(b, lenMark, len(b))
+		patch(b, sizeMark, size)
+	}
+	return b
+}
+
+var (
+	startXRefRe = regexp.MustCompile(`startxref\s+(\d+)`)
+	rootRe      = regexp.MustCompile(`/Root (\d+ \d+ R)`)
+	sizeRe      = regexp.MustCompile(`/Size (\d+)`)
+)
+
+func last(re *regexp.Regexp, b []byte) string {
+	all := re.FindAllSubmatch(b, -1)
+	if len(all) == 0 {
+		panic("pdfxtest: no " + re.String() + " in the file")
+	}
+	return string(all[len(all)-1][1])
+}
+
+// AppendUpdate appends one incremental update to pdf: objects (raw,
+// numbered after the file's /Size, {{obj i}} names the i-th of them), a
+// cross-reference section of the same kind as the file's last one (table or
+// stream) with /Prev to the previous startxref, and trailerExtra in its
+// trailer.
+func AppendUpdate(pdf []byte, objects []string, trailerExtra string) []byte {
+	prev, _ := strconv.Atoi(last(startXRefRe, pdf))
+	root := last(rootRe, pdf)
+	size, _ := strconv.Atoi(last(sizeRe, pdf))
+	stream := prev < len(pdf) && pdf[prev] >= '0' && pdf[prev] <= '9'
+
+	var w out
+	w.Write(pdf)
+	if !bytes.HasSuffix(pdf, []byte("\n")) {
+		w.WriteString("\n")
+	}
+	entries := map[int]entry{}
+	for i, o := range objects {
+		entries[size+i] = entry{1, w.object(size+i, resolve(o, size)), 0}
+	}
+	next := size + len(objects)
+	streamNum := 0
+	if stream {
+		streamNum = next
+		next++
+	}
+	trailer := fmt.Sprintf("/Root %s /Prev %d %s", root, prev, resolve(trailerExtra, size))
+	off := w.section(entries, next, trailer, streamNum)
+	fmt.Fprintf(&w, "startxref\n%d\n%%%%EOF\n", off)
+	return w.Bytes()
 }
 
 // Sample is a file that is not a PDF.
