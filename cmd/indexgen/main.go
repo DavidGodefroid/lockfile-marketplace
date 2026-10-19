@@ -229,11 +229,13 @@ func less(a, b string) bool {
 	return false
 }
 
+var httpClient = &http.Client{Timeout: 2 * time.Minute}
+
 func httpFetch(url string, max int64) ([]byte, error) {
 	if !strings.HasPrefix(url, "https://") {
 		return nil, fmt.Errorf("refusing non-https URL %q", url)
 	}
-	resp, err := http.Get(url)
+	resp, err := httpClient.Get(url)
 	if err != nil {
 		return nil, err
 	}
