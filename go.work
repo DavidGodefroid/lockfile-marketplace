@@ -17,5 +17,6 @@ use (
 	./plugins/pdf.parses
 	./plugins/pdf.truncated
 	./scripts/importcheck
+	./scripts/relcheck
 	./sdk
 )

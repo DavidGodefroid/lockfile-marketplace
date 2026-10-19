@@ -46,6 +46,10 @@ jobs:
           done
       - name: importcheck
         run: go run ./scripts/importcheck
+      - name: version rules (relcheck)
+        run: |
+          git fetch --tags --quiet origin
+          go run ./scripts/relcheck all
       - name: go test
         shell: bash
         run: |
