@@ -1,0 +1,7 @@
+[[case]]
+file = "yes.txt"
+answer = 1
+
+[[case]]
+file = "no.txt"
+answer = 0
