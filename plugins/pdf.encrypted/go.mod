@@ -3,7 +3,7 @@ module github.com/DavidGodefroid/lockfile-marketplace/plugins/pdf.encrypted
 go 1.26.0
 
 require (
-	github.com/DavidGodefroid/lockfile v0.1.0
+	github.com/DavidGodefroid/lockfile v0.1.1
 	github.com/DavidGodefroid/lockfile-marketplace/lib/pdfx v0.0.0
 	github.com/DavidGodefroid/lockfile-marketplace/sdk v0.0.0
 )
