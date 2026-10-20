@@ -1,0 +1,8 @@
+name = "pdf.has-figure-without-alt"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF's structure tree have a Figure element without alternate text?"
+one  = "a structure element whose type is Figure, after the role map, has neither /Alt nor /ActualText; the text itself is not read"
+zero = "every Figure element has /Alt or /ActualText, there is no Figure element, or the PDF is untagged"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }
