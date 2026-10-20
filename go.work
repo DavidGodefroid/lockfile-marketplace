@@ -8,6 +8,7 @@ use (
 	./plugins/docx.has-attached-template
 	./plugins/docx.has-comments
 	./plugins/docx.has-embedded-object
+	./plugins/docx.has-hidden-text
 	./plugins/docx.has-tracked-changes
 	./plugins/file.non-empty
 	./plugins/file.over-10mib

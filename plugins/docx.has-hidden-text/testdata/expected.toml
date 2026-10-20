@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "vanish.docx"
+answer = 1
+
+[[case]]
+file = "vanish-true.docx"
+answer = 1
+
+[[case]]
+file = "paragraph-mark.docx"
+answer = 1
+
+[[case]]
+file = "vanish-off.docx"
+answer = 0
+
+[[case]]
+file = "vanish-false.docx"
+answer = 0
+
+[[case]]
+file = "bold.docx"
+answer = 0
+
+[[case]]
+file = "strict-vanish.docx"
+answer = 1
+
+[[case]]
+file = "foreign-vanish.docx"
+answer = 0
+
+[[case]]
+file = "styles-vanish.docx"
+answer = 0
