@@ -41,6 +41,7 @@ use (
 	./plugins/pdf.has-embedded-file
 	./plugins/pdf.has-external-link
 	./plugins/pdf.has-form-fields
+	./plugins/pdf.has-hidden-annotation
 	./plugins/pdf.has-hidden-layer
 	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript

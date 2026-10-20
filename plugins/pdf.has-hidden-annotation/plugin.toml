@@ -1,0 +1,8 @@
+name = "pdf.has-hidden-annotation"
+version = "1.0.0"
+protocol = 1
+question = "Does some page carry an annotation flagged hidden (Hidden or NoView)?"
+one  = "some page's /Annots holds an annotation whose /F sets bit 2 (Hidden) or bit 6 (NoView)"
+zero = "no annotation a page lists sets the Hidden or NoView flag (annotations no page lists do not count)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }
