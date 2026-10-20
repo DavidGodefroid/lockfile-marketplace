@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "one-page.pdf"
+answer = 0
+
+[[case]]
+file = "a4-and-a4-landscape.pdf"
+answer = 0
+
+[[case]]
+file = "a4-and-half-mm-off.pdf"
+answer = 0
+
+[[case]]
+file = "a4-and-letter.pdf"
+answer = 1
+
+[[case]]
+file = "a4-then-a5-crop.pdf"
+answer = 1
