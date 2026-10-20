@@ -14,6 +14,7 @@ use (
 	./plugins/image.decodes
 	./plugins/image.has-gps-exif
 	./plugins/json.parses
+	./plugins/ooxml.has-external-relationship
 	./plugins/ooxml.has-macros
 	./plugins/ooxml.is-package
 	./plugins/pdf.all-pages-blank
