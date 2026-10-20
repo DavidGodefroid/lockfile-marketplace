@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-dests.pdf"
+answer = 0
+
+[[case]]
+file = "empty-dests.pdf"
+answer = 0
+
+[[case]]
+file = "catalog-dests.pdf"
+answer = 1
+
+[[case]]
+file = "names-without-dests.pdf"
+answer = 0
+
+[[case]]
+file = "empty-name-tree.pdf"
+answer = 0
+
+[[case]]
+file = "name-tree.pdf"
+answer = 1
