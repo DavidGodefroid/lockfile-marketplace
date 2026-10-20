@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.png"
+answer = 0
+
+[[case]]
+file = "iend-in-text.png"
+answer = 0
+
+[[case]]
+file = "appended.png"
+answer = 1
+
+[[case]]
+file = "one-byte.png"
+answer = 1
+
+[[case]]
+file = "zip-polyglot.png"
+answer = 1
+
+[[case]]
+file = "plain.jpg"
+answer = 0
+
+[[case]]
+file = "thumbnail.jpg"
+answer = 0
+
+[[case]]
+file = "appended.jpg"
+answer = 1
+
+[[case]]
+file = "thumbnail-appended.jpg"
+answer = 1
+
+[[case]]
+file = "zip-polyglot.jpg"
+answer = 1
