@@ -133,6 +133,7 @@ use (
 	./plugins/pdf.uses-rc4-encryption
 	./plugins/pptx.has-hidden-slide
 	./plugins/pptx.has-speaker-notes
+	./plugins/rtf.has-embedded-object
 	./plugins/svg.has-script
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8

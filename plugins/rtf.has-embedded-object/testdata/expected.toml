@@ -1,0 +1,48 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.rtf"
+answer = 0
+
+[[case]]
+file = "header-only.rtf"
+answer = 0
+
+[[case]]
+file = "object.rtf"
+answer = 1
+
+[[case]]
+file = "object-linked.rtf"
+answer = 1
+
+[[case]]
+file = "object-at-eof.rtf"
+answer = 1
+
+[[case]]
+file = "object-param.rtf"
+answer = 1
+
+[[case]]
+file = "object-after-bin.rtf"
+answer = 1
+
+[[case]]
+file = "escaped-backslash.rtf"
+answer = 0
+
+[[case]]
+file = "longer-word.rtf"
+answer = 0
+
+[[case]]
+file = "in-bin-data.rtf"
+answer = 0
+
+[[case]]
+file = "bin-truncated.rtf"
+answer = 0
+
+[[case]]
+file = "bin-huge.rtf"
+answer = 0
