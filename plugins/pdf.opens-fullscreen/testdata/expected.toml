@@ -1,0 +1,16 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-page-mode.pdf"
+answer = 0
+
+[[case]]
+file = "fullscreen.pdf"
+answer = 1
+
+[[case]]
+file = "use-outlines.pdf"
+answer = 0
+
+[[case]]
+file = "use-none.pdf"
+answer = 0
