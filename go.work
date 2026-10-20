@@ -8,6 +8,7 @@ use (
 	./plugins/format.is-pdf
 	./plugins/pdf.all-pages-blank
 	./plugins/pdf.claims-pdfa
+	./plugins/pdf.claims-pdfua
 	./plugins/pdf.copying-restricted
 	./plugins/pdf.declares-version-2
 	./plugins/pdf.encrypted
