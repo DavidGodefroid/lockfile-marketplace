@@ -30,6 +30,7 @@ use (
 	./plugins/pdf.has-author
 	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
+	./plugins/pdf.has-calculated-field
 	./plugins/pdf.has-creation-date
 	./plugins/pdf.has-creator-tool
 	./plugins/pdf.has-custom-info-key
@@ -52,6 +53,7 @@ use (
 	./plugins/pdf.has-page-labels
 	./plugins/pdf.has-piece-info
 	./plugins/pdf.has-producer
+	./plugins/pdf.has-read-only-field
 	./plugins/pdf.has-required-field
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
@@ -75,7 +77,6 @@ use (
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-read-only-field
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
