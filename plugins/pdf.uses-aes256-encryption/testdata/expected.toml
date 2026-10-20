@@ -1,0 +1,48 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "rc4-128.pdf"
+answer = 0
+
+[[case]]
+file = "aes-128.pdf"
+answer = 0
+
+[[case]]
+file = "aes-256-r5-pdfcpu.pdf"
+answer = 0
+
+[[case]]
+file = "aes-256-r5.pdf"
+answer = 0
+
+[[case]]
+file = "aes-256-r6.pdf"
+answer = 1
+
+[[case]]
+file = "aes-256-r7.pdf"
+answer = 1
+
+[[case]]
+file = "r6-xref-stream.pdf"
+answer = 1
+
+[[case]]
+file = "r6-indirect-cf.pdf"
+answer = 1
+
+[[case]]
+file = "r6-identity-str.pdf"
+answer = 0
+
+[[case]]
+file = "r6-no-strf.pdf"
+answer = 0
+
+[[case]]
+file = "r6-mixed-filters.pdf"
+answer = 0
