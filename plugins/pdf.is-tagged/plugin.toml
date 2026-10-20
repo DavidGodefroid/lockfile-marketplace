@@ -1,0 +1,8 @@
+name = "pdf.is-tagged"
+version = "1.0.0"
+protocol = 1
+question = "Is the PDF a tagged PDF?"
+one  = "the catalog has a /MarkInfo dictionary with /Marked true and a /StructTreeRoot dictionary; the quality of the tags is not checked"
+zero = "no /StructTreeRoot, or /MarkInfo /Marked is absent or false"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

@@ -24,6 +24,7 @@ use (
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
 	./plugins/pdf.is-linearized
+	./plugins/pdf.is-tagged
 	./plugins/pdf.needs-password
 	./plugins/pdf.parses
 	./plugins/pdf.printing-restricted
