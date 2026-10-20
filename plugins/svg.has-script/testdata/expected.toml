@@ -1,0 +1,44 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.svg"
+answer = 0
+
+[[case]]
+file = "style-and-link.svg"
+answer = 0
+
+[[case]]
+file = "prefixed-on-attribute.svg"
+answer = 0
+
+[[case]]
+file = "script-text-only.svg"
+answer = 0
+
+[[case]]
+file = "bom-latin1.svg"
+answer = 0
+
+[[case]]
+file = "script.svg"
+answer = 1
+
+[[case]]
+file = "nested-script.svg"
+answer = 1
+
+[[case]]
+file = "onload-root.svg"
+answer = 1
+
+[[case]]
+file = "onclick-child.svg"
+answer = 1
+
+[[case]]
+file = "prefixed-root.svg"
+answer = 1
+
+[[case]]
+file = "xhtml-script.svg"
+answer = 1
