@@ -113,6 +113,7 @@ use (
 	./plugins/pdf.single-page
 	./plugins/pdf.text-on-every-page
 	./plugins/pdf.truncated
+	./plugins/pdf.uses-rc4-encryption
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
