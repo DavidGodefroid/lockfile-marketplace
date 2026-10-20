@@ -165,12 +165,14 @@ type tokKind int
 
 const (
 	tokNumber tokKind = iota
-	tokOther          // name, string, array, dict, boolean, null
+	tokName           // name, decoded, without its slash
+	tokOther          // string, array, dict, boolean, null
 )
 
 type token struct {
 	kind tokKind
 	num  float64
+	name string
 }
 
 func isSpace(c byte) bool {
@@ -217,10 +219,16 @@ func lex(b []byte, fn func(op string, args []token) bool) {
 			args = append(args, token{kind: tokOther})
 		case c == '/':
 			i++
+			j := i
 			for i < len(b) && !isSpace(b[i]) && !isDelim(b[i]) {
 				i++
 			}
-			args = append(args, token{kind: tokOther})
+			name, err := types.DecodeName(string(b[j:i]))
+			if err != nil {
+				// Undecodable: kept raw, so it matches no resource.
+				name = string(b[j:i])
+			}
+			args = append(args, token{kind: tokName, name: name})
 		case isDelim(c):
 			// Stray ) > ] } : skip.
 			i++

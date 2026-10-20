@@ -31,6 +31,7 @@ use (
 	./plugins/pdf.has-output-intent
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
+	./plugins/pdf.has-text-layer
 	./plugins/pdf.has-title
 	./plugins/pdf.has-xfa
 	./plugins/pdf.has-xmp-metadata
