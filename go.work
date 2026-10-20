@@ -35,6 +35,7 @@ use (
 	./plugins/pdf.has-creation-date
 	./plugins/pdf.has-creator-tool
 	./plugins/pdf.has-custom-info-key
+	./plugins/pdf.has-document-timestamp
 	./plugins/pdf.has-dss
 	./plugins/pdf.has-embedded-file
 	./plugins/pdf.has-external-link
@@ -53,6 +54,7 @@ use (
 	./plugins/pdf.has-optional-content
 	./plugins/pdf.has-outline
 	./plugins/pdf.has-output-intent
+	./plugins/pdf.has-pades-signature
 	./plugins/pdf.has-page-labels
 	./plugins/pdf.has-piece-info
 	./plugins/pdf.has-producer
@@ -81,7 +83,6 @@ use (
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-document-timestamp
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
