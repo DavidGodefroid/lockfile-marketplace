@@ -1,0 +1,12 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "exactly-10mib.bin"
+answer = 0
+
+[[case]]
+file = "10mib-plus-one.bin"
+answer = 1
