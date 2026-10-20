@@ -61,6 +61,7 @@ use (
 	./plugins/pdf.has-xref-stream
 	./plugins/pdf.image-only
 	./plugins/pdf.is-linearized
+	./plugins/pdf.is-portfolio
 	./plugins/pdf.is-tagged
 	./plugins/pdf.needs-password
 	./plugins/pdf.parses
