@@ -26,6 +26,7 @@ use (
 	./plugins/pdf.declares-version-2
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
+	./plugins/pdf.has-3d-annotation
 	./plugins/pdf.has-associated-files
 	./plugins/pdf.has-author
 	./plugins/pdf.has-auto-action
@@ -60,6 +61,7 @@ use (
 	./plugins/pdf.has-piece-info
 	./plugins/pdf.has-producer
 	./plugins/pdf.has-read-only-field
+	./plugins/pdf.has-redaction-annotation
 	./plugins/pdf.has-remote-goto-action
 	./plugins/pdf.has-required-field
 	./plugins/pdf.has-rotated-page
@@ -86,7 +88,6 @@ use (
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-3d-annotation
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
