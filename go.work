@@ -124,6 +124,7 @@ use (
 	./plugins/zip.has-encrypted-entry
 	./plugins/zip.has-nested-archive
 	./plugins/zip.has-path-traversal
+	./plugins/zip.has-symlink-entry
 	./plugins/zip.parses
 	./scripts/importcheck
 	./scripts/relcheck

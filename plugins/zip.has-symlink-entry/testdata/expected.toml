@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty-archive.zip"
+answer = 0
+
+[[case]]
+file = "plain.zip"
+answer = 0
+
+[[case]]
+file = "unix-regular.zip"
+answer = 0
+
+[[case]]
+file = "fat-symlink-bits.zip"
+answer = 0
+
+[[case]]
+file = "symlink.zip"
+answer = 1
+
+[[case]]
+file = "symlink-only.zip"
+answer = 1
