@@ -1,0 +1,16 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "linearized.pdf"
+answer = 1
+
+[[case]]
+file = "linearized-then-updated.pdf"
+answer = 0
+
+[[case]]
+file = "linearized-wrong-length.pdf"
+answer = 0
