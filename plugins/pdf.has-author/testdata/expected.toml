@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-metadata.pdf"
+answer = 0
+
+[[case]]
+file = "empty-author.pdf"
+answer = 0
+
+[[case]]
+file = "blank-author.pdf"
+answer = 0
+
+[[case]]
+file = "author.pdf"
+answer = 1
+
+[[case]]
+file = "utf16-hex-author.pdf"
+answer = 1
+
+[[case]]
+file = "title-only.pdf"
+answer = 0
+
+[[case]]
+file = "xmp-dc-creator.pdf"
+answer = 1
+
+[[case]]
+file = "xmp-without-creator.pdf"
+answer = 0

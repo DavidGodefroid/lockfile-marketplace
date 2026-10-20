@@ -25,6 +25,7 @@ use (
 	./plugins/pdf.declares-version-2
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
+	./plugins/pdf.has-author
 	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
 	./plugins/pdf.has-embedded-file
