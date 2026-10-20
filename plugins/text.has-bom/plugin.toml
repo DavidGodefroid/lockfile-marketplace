@@ -1,0 +1,8 @@
+name = "text.has-bom"
+version = "1.0.0"
+protocol = 1
+question = "Does the file start with a Unicode byte order mark?"
+one = "the first bytes are EF BB BF (UTF-8), FE FF (UTF-16 BE), FF FE (UTF-16 LE, which also covers UTF-32 LE) or 00 00 FE FF (UTF-32 BE)"
+zero = "the file starts with anything else, is empty, or is shorter than a byte order mark"
+accepts = ["*/*"]
+limits = { cpu_s = 10, memory = "128MiB", timeout_s = 20 }
