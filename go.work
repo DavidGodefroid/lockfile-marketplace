@@ -9,6 +9,7 @@ use (
 	./plugins/pdf.all-pages-blank
 	./plugins/pdf.claims-pdfa
 	./plugins/pdf.copying-restricted
+	./plugins/pdf.declares-version-2
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
 	./plugins/pdf.has-blank-page
