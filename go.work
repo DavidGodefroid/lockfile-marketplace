@@ -22,6 +22,7 @@ use (
 	./plugins/pdf.has-mixed-orientation
 	./plugins/pdf.has-mixed-page-sizes
 	./plugins/pdf.has-non-a4-page
+	./plugins/pdf.has-outline
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
 	./plugins/pdf.is-linearized
