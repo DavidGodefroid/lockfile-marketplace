@@ -33,9 +33,10 @@ type Page struct {
 	MediaBox, CropBox *[4]float64
 	UserUnit          float64
 	Rotate            *int
-	Annots            []string // raw annotation dicts
-	Content           string   // raw content stream; empty = no /Contents
-	Resources         string   // raw resources dict; empty = << >>
+	Annots            []string          // raw annotation dicts
+	Content           string            // raw content stream; empty = no /Contents
+	Resources         string            // raw resources dict; empty = << >>
+	Entries           map[string]string // extra raw page entries, key with its slash
 }
 
 // Doc is one PDF file.
@@ -168,6 +169,14 @@ func Write(d Doc) []byte {
 		if p.Content != "" {
 			c := add(Stream("<< >>", []byte(p.Content)))
 			b.WriteString(fmt.Sprintf(" /Contents %d 0 R", c))
+		}
+		keys := make([]string, 0, len(p.Entries))
+		for k := range p.Entries {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+		for _, k := range keys {
+			b.WriteString(" " + k + " " + p.Entries[k])
 		}
 		b.WriteString(" >>")
 		bodies[pageNo-1] = b.String()
