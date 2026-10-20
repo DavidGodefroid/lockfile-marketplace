@@ -19,6 +19,7 @@ use (
 	./plugins/image.decodes
 	./plugins/image.has-gps-exif
 	./plugins/json.parses
+	./plugins/odf.has-macros
 	./plugins/ooxml.has-digital-signature
 	./plugins/ooxml.has-external-relationship
 	./plugins/ooxml.has-macros
