@@ -30,6 +30,7 @@ use (
 	./plugins/pdf.has-signature
 	./plugins/pdf.has-title
 	./plugins/pdf.has-xmp-metadata
+	./plugins/pdf.has-xref-stream
 	./plugins/pdf.is-linearized
 	./plugins/pdf.is-tagged
 	./plugins/pdf.needs-password
