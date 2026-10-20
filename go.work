@@ -127,6 +127,7 @@ use (
 	./plugins/zip.has-path-traversal
 	./plugins/zip.has-symlink-entry
 	./plugins/zip.parses
+	./plugins/zip.uses-zip64
 	./scripts/importcheck
 	./scripts/relcheck
 	./scripts/wfcheck
