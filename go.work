@@ -36,6 +36,7 @@ use (
 	./plugins/pdf.has-certification-signature
 	./plugins/pdf.has-creation-date
 	./plugins/pdf.has-creator-tool
+	./plugins/pdf.has-cropped-page
 	./plugins/pdf.has-custom-info-key
 	./plugins/pdf.has-document-timestamp
 	./plugins/pdf.has-dss
