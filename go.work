@@ -16,6 +16,7 @@ use (
 	./plugins/json.parses
 	./plugins/ooxml.has-external-relationship
 	./plugins/ooxml.has-macros
+	./plugins/ooxml.has-thumbnail
 	./plugins/ooxml.is-package
 	./plugins/pdf.all-pages-blank
 	./plugins/pdf.annotations-lack-tab-order
