@@ -4,6 +4,7 @@ use (
 	./cmd/indexgen
 	./lib/formatx
 	./lib/pdfx
+	./plugins/csv.consistent-columns
 	./plugins/file.non-empty
 	./plugins/file.over-10mib
 	./plugins/format.is-pdf

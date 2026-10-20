@@ -1,0 +1,8 @@
+name = "csv.consistent-columns"
+version = "1.0.0"
+protocol = 1
+question = "Does the file parse as comma-separated values with the same number of columns on every row?"
+one = "the file is valid UTF-8, holds at least one record, and every record parses with as many fields as the first"
+zero = "an empty file, invalid UTF-8, a stray or unterminated quote, or a row whose field count differs from the first"
+accepts = ["*/*"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }
