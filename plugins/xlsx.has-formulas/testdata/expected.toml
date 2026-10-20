@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.xlsx"
+answer = 0
+
+[[case]]
+file = "values-only.xlsx"
+answer = 0
+
+[[case]]
+file = "formula.xlsx"
+answer = 1
+
+[[case]]
+file = "second-sheet.xlsx"
+answer = 1
+
+[[case]]
+file = "absolute-target.xlsx"
+answer = 1
+
+[[case]]
+file = "strict-formula.xlsx"
+answer = 1
+
+[[case]]
+file = "foreign-f.xlsx"
+answer = 0
+
+[[case]]
+file = "unlinked-sheet.xlsx"
+answer = 0

@@ -128,6 +128,7 @@ use (
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xlsx.has-external-links
+	./plugins/xlsx.has-formulas
 	./plugins/xlsx.has-hidden-sheet
 	./plugins/xml.well-formed
 	./plugins/zip.has-comment
