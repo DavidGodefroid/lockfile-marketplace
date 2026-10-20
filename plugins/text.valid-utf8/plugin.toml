@@ -1,0 +1,8 @@
+name = "text.valid-utf8"
+version = "1.0.0"
+protocol = 1
+question = "Is the file valid UTF-8?"
+one = "every byte of the file belongs to a well-formed UTF-8 sequence; an empty file counts as valid"
+zero = "the file holds an invalid UTF-8 sequence: a stray continuation byte, an overlong or surrogate encoding, a byte that never appears in UTF-8, or a sequence cut by the end of the file"
+accepts = ["*/*"]
+limits = { cpu_s = 10, memory = "128MiB", timeout_s = 20 }
