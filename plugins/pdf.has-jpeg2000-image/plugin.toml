@@ -1,0 +1,8 @@
+name = "pdf.has-jpeg2000-image"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF hold a JPEG 2000 image (a stream with the JPXDecode filter)?"
+one  = "some stream of the file, used or not, has JPXDecode in its /Filter"
+zero = "no stream of the file has JPXDecode in its /Filter"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }
