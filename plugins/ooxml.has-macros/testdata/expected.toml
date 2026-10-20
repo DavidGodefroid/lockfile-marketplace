@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "sample.xlsx"
+answer = 0
+
+[[case]]
+file = "vba-name.docm"
+answer = 1
+
+[[case]]
+file = "vba-override.xlsm"
+answer = 1
+
+[[case]]
+file = "vba-default.docm"
+answer = 1
+
+[[case]]
+file = "macrosheet.xlsm"
+answer = 1
+
+[[case]]
+file = "unused-default.docx"
+answer = 0
+
+[[case]]
+file = "missing-override.xlsx"
+answer = 0
