@@ -12,6 +12,7 @@ use (
 	./plugins/docx.has-field-codes
 	./plugins/docx.has-hidden-text
 	./plugins/docx.has-tracked-changes
+	./plugins/eml.has-attachment
 	./plugins/epub.has-encryption
 	./plugins/file.non-empty
 	./plugins/file.over-10mib
