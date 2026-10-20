@@ -10,6 +10,7 @@ use (
 	./plugins/file.non-empty
 	./plugins/file.over-10mib
 	./plugins/format.is-pdf
+	./plugins/html.has-script-element
 	./plugins/json.parses
 	./plugins/ooxml.has-macros
 	./plugins/ooxml.is-package
