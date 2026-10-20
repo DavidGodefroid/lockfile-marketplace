@@ -127,6 +127,7 @@ use (
 	./plugins/zip.has-high-compression-ratio
 	./plugins/zip.has-nested-archive
 	./plugins/zip.has-path-traversal
+	./plugins/zip.has-prepended-data
 	./plugins/zip.has-symlink-entry
 	./plugins/zip.parses
 	./plugins/zip.uses-zip64
