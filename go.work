@@ -47,6 +47,7 @@ use (
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
 	./plugins/zip.has-encrypted-entry
+	./plugins/zip.has-nested-archive
 	./plugins/zip.has-path-traversal
 	./plugins/zip.parses
 	./scripts/importcheck
