@@ -19,6 +19,7 @@ use (
 	./plugins/html.has-script-element
 	./plugins/image.decodes
 	./plugins/image.has-gps-exif
+	./plugins/json.has-duplicate-keys
 	./plugins/json.parses
 	./plugins/odf.has-macros
 	./plugins/ooxml.has-digital-signature
