@@ -35,6 +35,7 @@ use (
 	./plugins/pdf.has-creation-date
 	./plugins/pdf.has-creator-tool
 	./plugins/pdf.has-custom-info-key
+	./plugins/pdf.has-dss
 	./plugins/pdf.has-embedded-file
 	./plugins/pdf.has-external-link
 	./plugins/pdf.has-form-fields
