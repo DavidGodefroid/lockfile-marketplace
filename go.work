@@ -25,6 +25,7 @@ use (
 	./plugins/pdf.declares-version-2
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
+	./plugins/pdf.has-associated-files
 	./plugins/pdf.has-author
 	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
@@ -56,6 +57,7 @@ use (
 	./plugins/pdf.has-text-layer
 	./plugins/pdf.has-thumbnails
 	./plugins/pdf.has-title
+	./plugins/pdf.has-viewer-preferences
 	./plugins/pdf.has-xfa
 	./plugins/pdf.has-xmp-metadata
 	./plugins/pdf.has-xref-stream
@@ -70,7 +72,6 @@ use (
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-viewer-preferences
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
