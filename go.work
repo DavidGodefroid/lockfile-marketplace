@@ -44,6 +44,7 @@ use (
 	./plugins/pdf.has-dss
 	./plugins/pdf.has-embedded-file
 	./plugins/pdf.has-external-link
+	./plugins/pdf.has-font-without-tounicode
 	./plugins/pdf.has-form-fields
 	./plugins/pdf.has-hidden-annotation
 	./plugins/pdf.has-hidden-layer
