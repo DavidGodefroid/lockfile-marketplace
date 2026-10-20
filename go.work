@@ -46,6 +46,7 @@ use (
 	./plugins/pdf.has-form-fields
 	./plugins/pdf.has-hidden-annotation
 	./plugins/pdf.has-hidden-layer
+	./plugins/pdf.has-image
 	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript
 	./plugins/pdf.has-launch-action
