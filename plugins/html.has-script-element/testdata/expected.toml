@@ -1,0 +1,60 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "plain.html"
+answer = 0
+
+[[case]]
+file = "script.html"
+answer = 1
+
+[[case]]
+file = "script-upper-src.html"
+answer = 1
+
+[[case]]
+file = "script-self-closing.html"
+answer = 1
+
+[[case]]
+file = "script-newline.html"
+answer = 1
+
+[[case]]
+file = "script-in-comment.html"
+answer = 1
+
+[[case]]
+file = "script-after-lt.html"
+answer = 1
+
+[[case]]
+file = "split-buffer.html"
+answer = 1
+
+[[case]]
+file = "scripts.html"
+answer = 0
+
+[[case]]
+file = "script-at-eof.html"
+answer = 0
+
+[[case]]
+file = "onclick.html"
+answer = 0
+
+[[case]]
+file = "noscript-dash.html"
+answer = 0

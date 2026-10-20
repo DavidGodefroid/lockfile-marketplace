@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.png"
+answer = 0
+
+[[case]]
+file = "gps-mm.png"
+answer = 1
+
+[[case]]
+file = "gps-ii.png"
+answer = 1
+
+[[case]]
+file = "no-gps.png"
+answer = 0
+
+[[case]]
+file = "plain.jpg"
+answer = 0
+
+[[case]]
+file = "gps-ii.jpg"
+answer = 1
+
+[[case]]
+file = "gps-mm.jpg"
+answer = 1
+
+[[case]]
+file = "no-gps.jpg"
+answer = 0
+
+[[case]]
+file = "xmp-only.jpg"
+answer = 0
+
+[[case]]
+file = "xmp-then-gps.jpg"
+answer = 1

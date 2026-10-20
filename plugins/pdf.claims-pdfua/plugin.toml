@@ -1,0 +1,8 @@
+name = "pdf.claims-pdfua"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF declare PDF/UA conformance in its XMP metadata?"
+one  = "the catalog /Metadata XMP contains a pdfuaid:part property (namespace http://www.aiim.org/pdfua/ns/id/); conformance itself is not checked"
+zero = "no catalog XMP metadata, or no pdfuaid:part property in it"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

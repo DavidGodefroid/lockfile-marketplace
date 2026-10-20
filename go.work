@@ -2,20 +2,66 @@ go 1.26.0
 
 use (
 	./cmd/indexgen
+	./lib/formatx
 	./lib/pdfx
+	./plugins/csv.consistent-columns
+	./plugins/docx.has-comments
+	./plugins/docx.has-tracked-changes
 	./plugins/file.non-empty
+	./plugins/file.over-10mib
 	./plugins/format.is-pdf
+	./plugins/html.has-script-element
+	./plugins/image.decodes
+	./plugins/image.has-gps-exif
+	./plugins/json.parses
+	./plugins/ooxml.has-macros
+	./plugins/ooxml.is-package
 	./plugins/pdf.all-pages-blank
 	./plugins/pdf.claims-pdfa
+	./plugins/pdf.claims-pdfua
+	./plugins/pdf.claims-pdfx
+	./plugins/pdf.copying-restricted
+	./plugins/pdf.declares-language
+	./plugins/pdf.declares-version-2
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
+	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
+	./plugins/pdf.has-embedded-file
+	./plugins/pdf.has-external-link
+	./plugins/pdf.has-form-fields
 	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript
+	./plugins/pdf.has-launch-action
+	./plugins/pdf.has-markup-annotation
+	./plugins/pdf.has-mixed-orientation
+	./plugins/pdf.has-mixed-page-sizes
 	./plugins/pdf.has-non-a4-page
+	./plugins/pdf.has-outline
+	./plugins/pdf.has-output-intent
 	./plugins/pdf.has-rotated-page
+	./plugins/pdf.has-signature
+	./plugins/pdf.has-text-layer
+	./plugins/pdf.has-title
+	./plugins/pdf.has-xfa
+	./plugins/pdf.has-xmp-metadata
+	./plugins/pdf.has-xref-stream
+	./plugins/pdf.image-only
+	./plugins/pdf.is-linearized
+	./plugins/pdf.is-tagged
+	./plugins/pdf.needs-password
 	./plugins/pdf.parses
+	./plugins/pdf.printing-restricted
+	./plugins/pdf.signature-covers-whole-file
+	./plugins/pdf.single-page
 	./plugins/pdf.truncated
+	./plugins/text.has-bom
+	./plugins/text.valid-utf8
+	./plugins/xml.well-formed
+	./plugins/zip.has-encrypted-entry
+	./plugins/zip.has-nested-archive
+	./plugins/zip.has-path-traversal
+	./plugins/zip.parses
 	./scripts/importcheck
 	./scripts/relcheck
 	./scripts/wfcheck

@@ -1,0 +1,44 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "empty-archive.zip"
+answer = 1
+
+[[case]]
+file = "valid.zip"
+answer = 1
+
+[[case]]
+file = "sample.docx"
+answer = 1
+
+[[case]]
+file = "insecure-name.zip"
+answer = 1
+
+[[case]]
+file = "truncated.zip"
+answer = 0
+
+[[case]]
+file = "bad-crc.zip"
+answer = 0
+
+[[case]]
+file = "bad-deflate.zip"
+answer = 0
+
+[[case]]
+file = "encrypted-flag.zip"
+answer = 0
+
+[[case]]
+file = "aes-method.zip"
+answer = 0

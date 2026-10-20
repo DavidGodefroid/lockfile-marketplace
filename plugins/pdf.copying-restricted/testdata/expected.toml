@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "all-allowed.pdf"
+answer = 0
+
+[[case]]
+file = "copying-allowed.pdf"
+answer = 0
+
+[[case]]
+file = "copying-denied.pdf"
+answer = 1
+
+[[case]]
+file = "none-allowed.pdf"
+answer = 1

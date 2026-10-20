@@ -1,0 +1,8 @@
+name = "image.has-gps-exif"
+version = "1.0.0"
+protocol = 1
+question = "Does the PNG or JPEG image carry Exif GPS information?"
+one = "an Exif block (PNG eXIf chunk or JPEG APP1 Exif segment) has a GPSInfo tag (0x8825) in IFD0"
+zero = "no Exif block, an XMP-only APP1, or an Exif IFD0 without a GPSInfo tag"
+accepts = ["*/*"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

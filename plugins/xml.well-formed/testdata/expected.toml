@@ -1,0 +1,96 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "minimal.xml"
+answer = 1
+
+[[case]]
+file = "document.xml"
+answer = 1
+
+[[case]]
+file = "word-document.xml"
+answer = 1
+
+[[case]]
+file = "us-ascii.xml"
+answer = 1
+
+[[case]]
+file = "latin1.xml"
+answer = 1
+
+[[case]]
+file = "latin1-alias.xml"
+answer = 1
+
+[[case]]
+file = "unsupported-charset.xml"
+answer = 0
+
+[[case]]
+file = "two-roots.xml"
+answer = 0
+
+[[case]]
+file = "text-before-root.xml"
+answer = 0
+
+[[case]]
+file = "text-after-root.xml"
+answer = 0
+
+[[case]]
+file = "directive-after-root.xml"
+answer = 0
+
+[[case]]
+file = "late-declaration.xml"
+answer = 0
+
+[[case]]
+file = "leading-space-declaration.xml"
+answer = 0
+
+[[case]]
+file = "unclosed.xml"
+answer = 0
+
+[[case]]
+file = "mismatched.xml"
+answer = 0
+
+[[case]]
+file = "undefined-entity.xml"
+answer = 0
+
+[[case]]
+file = "invalid-utf8.xml"
+answer = 0
+
+[[case]]
+file = "bom.xml"
+answer = 1
+
+[[case]]
+file = "bom-no-declaration.xml"
+answer = 1
+
+[[case]]
+file = "double-bom.xml"
+answer = 0
+
+[[case]]
+file = "bom-after-root.xml"
+answer = 0
+
+[[case]]
+file = "sample.docx"
+answer = 0

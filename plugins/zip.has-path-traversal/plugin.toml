@@ -1,0 +1,8 @@
+name = "zip.has-path-traversal"
+version = "1.0.0"
+protocol = 1
+question = "Does the ZIP archive have an entry whose name escapes the extraction directory?"
+one = "an entry name starts with / or \\, starts with a drive letter like C:, or has a .. path component"
+zero = "every entry name is relative and has no .. component"
+accepts = ["application/zip", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

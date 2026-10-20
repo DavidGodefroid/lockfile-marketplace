@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "header-1.4.pdf"
+answer = 0
+
+[[case]]
+file = "header-1.7.pdf"
+answer = 0
+
+[[case]]
+file = "header-2.0.pdf"
+answer = 1
+
+[[case]]
+file = "header-1.4-catalog-1.7.pdf"
+answer = 0
+
+[[case]]
+file = "header-1.7-catalog-2.0.pdf"
+answer = 1

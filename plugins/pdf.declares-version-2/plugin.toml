@@ -1,0 +1,8 @@
+name = "pdf.declares-version-2"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF declare PDF version 2.0?"
+one  = "the effective version, the higher of the header %PDF-x.y and the catalog /Version, is 2.0 or above"
+zero = "the effective version is below 2.0"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

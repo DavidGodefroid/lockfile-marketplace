@@ -1,0 +1,16 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-lang.pdf"
+answer = 0
+
+[[case]]
+file = "empty-lang.pdf"
+answer = 0
+
+[[case]]
+file = "lang.pdf"
+answer = 1
+
+[[case]]
+file = "hex-lang.pdf"
+answer = 1

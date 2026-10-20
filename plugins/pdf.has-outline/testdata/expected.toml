@@ -1,0 +1,12 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-outline.pdf"
+answer = 0
+
+[[case]]
+file = "empty-outline.pdf"
+answer = 0
+
+[[case]]
+file = "one-item.pdf"
+answer = 1

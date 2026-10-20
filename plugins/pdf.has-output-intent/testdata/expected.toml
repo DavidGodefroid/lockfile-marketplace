@@ -1,0 +1,16 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-intent.pdf"
+answer = 0
+
+[[case]]
+file = "empty-array.pdf"
+answer = 0
+
+[[case]]
+file = "one-intent.pdf"
+answer = 1
+
+[[case]]
+file = "indirect-intent.pdf"
+answer = 1

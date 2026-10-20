@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "all-portrait.pdf"
+answer = 0
+
+[[case]]
+file = "portrait-and-landscape.pdf"
+answer = 1
+
+[[case]]
+file = "portrait-and-rotated-portrait.pdf"
+answer = 1
+
+[[case]]
+file = "landscape-all-rotated.pdf"
+answer = 0
+
+[[case]]
+file = "portrait-and-square.pdf"
+answer = 0
+
+[[case]]
+file = "portrait-and-upside-down.pdf"
+answer = 0

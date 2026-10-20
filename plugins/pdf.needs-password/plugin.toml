@@ -1,0 +1,8 @@
+name = "pdf.needs-password"
+version = "1.0.0"
+protocol = 1
+question = "Does opening the PDF need a password?"
+one  = "the PDF is encrypted and the empty user password does not open it"
+zero = "the PDF opens without a password (not encrypted, or encrypted with an owner password only)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "acroform.pdf"
+answer = 0
+
+[[case]]
+file = "xfa-stream.pdf"
+answer = 1
+
+[[case]]
+file = "xfa-packets.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "stray-xfa.pdf"
+answer = 0

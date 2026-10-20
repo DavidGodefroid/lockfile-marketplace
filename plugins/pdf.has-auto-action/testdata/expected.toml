@@ -1,0 +1,56 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "open-action.pdf"
+answer = 1
+
+[[case]]
+file = "open-action-goto-next.pdf"
+answer = 1
+
+[[case]]
+file = "open-action-indirect.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "catalog-aa.pdf"
+answer = 1
+
+[[case]]
+file = "page-aa.pdf"
+answer = 1
+
+[[case]]
+file = "annot-aa-po.pdf"
+answer = 1
+
+[[case]]
+file = "annot-aa-pv.pdf"
+answer = 1
+
+[[case]]
+file = "open-action-goto.pdf"
+answer = 0
+
+[[case]]
+file = "open-action-dest.pdf"
+answer = 0
+
+[[case]]
+file = "empty-aa.pdf"
+answer = 0
+
+[[case]]
+file = "annot-aa-gesture.pdf"
+answer = 0
+
+[[case]]
+file = "link-only.pdf"
+answer = 0

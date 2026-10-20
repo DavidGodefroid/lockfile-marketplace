@@ -1,0 +1,68 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty-archive.zip"
+answer = 0
+
+[[case]]
+file = "plain.zip"
+answer = 0
+
+[[case]]
+file = "dirs-only.zip"
+answer = 0
+
+[[case]]
+file = "near-misses.zip"
+answer = 0
+
+[[case]]
+file = "docx-as-zip.zip"
+answer = 0
+
+[[case]]
+file = "zip.zip"
+answer = 1
+
+[[case]]
+file = "zip-stored.zip"
+answer = 1
+
+[[case]]
+file = "zip-empty.zip"
+answer = 1
+
+[[case]]
+file = "zip-spanned.zip"
+answer = 1
+
+[[case]]
+file = "gzip.zip"
+answer = 1
+
+[[case]]
+file = "bzip2.zip"
+answer = 1
+
+[[case]]
+file = "xz.zip"
+answer = 1
+
+[[case]]
+file = "zstd.zip"
+answer = 1
+
+[[case]]
+file = "7z.zip"
+answer = 1
+
+[[case]]
+file = "rar.zip"
+answer = 1
+
+[[case]]
+file = "tar.zip"
+answer = 1
+
+[[case]]
+file = "nested-after-dir.zip"
+answer = 1

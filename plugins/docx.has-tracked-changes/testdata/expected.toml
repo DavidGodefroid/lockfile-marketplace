@@ -1,0 +1,44 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "track-revisions-only.docx"
+answer = 0
+
+[[case]]
+file = "insertion.docx"
+answer = 1
+
+[[case]]
+file = "deletion.docx"
+answer = 1
+
+[[case]]
+file = "move.docx"
+answer = 1
+
+[[case]]
+file = "cell-deletion.docx"
+answer = 1
+
+[[case]]
+file = "format-change.docx"
+answer = 1
+
+[[case]]
+file = "header-insertion.docx"
+answer = 1
+
+[[case]]
+file = "strict-insertion.docx"
+answer = 1
+
+[[case]]
+file = "foreign-ins.docx"
+answer = 0
+
+[[case]]
+file = "outside-word.docx"
+answer = 0

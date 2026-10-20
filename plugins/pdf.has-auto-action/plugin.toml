@@ -1,0 +1,8 @@
+name = "pdf.has-auto-action"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF declare an action that runs without a user gesture (on opening the document or a page)?"
+one  = "an /OpenAction other than a plain go-to, a catalog or page /AA, or an annotation /AA with PO, PC, PV or PI"
+zero = "no automatic action"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

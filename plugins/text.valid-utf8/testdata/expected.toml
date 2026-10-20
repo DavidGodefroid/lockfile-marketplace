@@ -1,0 +1,56 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 1
+
+[[case]]
+file = "sample.txt"
+answer = 1
+
+[[case]]
+file = "multilingual.txt"
+answer = 1
+
+[[case]]
+file = "bom.txt"
+answer = 1
+
+[[case]]
+file = "split-3byte.txt"
+answer = 1
+
+[[case]]
+file = "split-4byte.txt"
+answer = 1
+
+[[case]]
+file = "latin1.txt"
+answer = 0
+
+[[case]]
+file = "stray-continuation.txt"
+answer = 0
+
+[[case]]
+file = "overlong.txt"
+answer = 0
+
+[[case]]
+file = "surrogate.txt"
+answer = 0
+
+[[case]]
+file = "byte-ff.txt"
+answer = 0
+
+[[case]]
+file = "truncated-rune.txt"
+answer = 0
+
+[[case]]
+file = "invalid-after-boundary.txt"
+answer = 0
+
+[[case]]
+file = "sample.docx"
+answer = 0

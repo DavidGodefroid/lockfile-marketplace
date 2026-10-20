@@ -33,9 +33,10 @@ type Page struct {
 	MediaBox, CropBox *[4]float64
 	UserUnit          float64
 	Rotate            *int
-	Annots            []string // raw annotation dicts
-	Content           string   // raw content stream; empty = no /Contents
-	Resources         string   // raw resources dict; empty = << >>
+	Annots            []string          // raw annotation dicts
+	Content           string            // raw content stream; empty = no /Contents
+	Resources         string            // raw resources dict; empty = << >>
+	Entries           map[string]string // extra raw page entries, key with its slash
 }
 
 // Doc is one PDF file.
@@ -47,6 +48,8 @@ type Doc struct {
 	Catalog     map[string]string // extra raw catalog entries, key with its slash
 	Objects     []string          // extra objects, raw; referenced as {{obj i}}
 	Metadata    []byte            // catalog XMP metadata stream
+	Info        map[string]string // raw document information entries, key with its slash; nil = no /Info
+	Version     string            // header version; empty = 1.7
 
 	// Layout. XRefStream writes cross-reference streams instead of classic
 	// tables; ObjStream (which implies XRefStream) puts every non-stream
@@ -167,12 +170,30 @@ func Write(d Doc) []byte {
 			c := add(Stream("<< >>", []byte(p.Content)))
 			b.WriteString(fmt.Sprintf(" /Contents %d 0 R", c))
 		}
+		keys := make([]string, 0, len(p.Entries))
+		for k := range p.Entries {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+		for _, k := range keys {
+			b.WriteString(" " + k + " " + p.Entries[k])
+		}
 		b.WriteString(" >>")
 		bodies[pageNo-1] = b.String()
 	}
 	meta := 0
 	if d.Metadata != nil {
 		meta = add(Stream("<< /Type /Metadata /Subtype /XML >>", d.Metadata))
+	}
+	info := 0
+	if d.Info != nil {
+		var b strings.Builder
+		b.WriteString("<<")
+		for _, k := range sortedStrings(d.Info) {
+			b.WriteString(" " + k + " " + d.Info[k])
+		}
+		b.WriteString(" >>")
+		info = add(b.String())
 	}
 	first := len(bodies) + 1
 	for _, o := range d.Objects {
@@ -208,7 +229,16 @@ func Write(d Doc) []byte {
 	for i, body := range bodies {
 		bodies[i] = resolve(body, first)
 	}
-	return serialize(d, bodies, len(d.Pages))
+	return serialize(d, bodies, len(d.Pages), info)
+}
+
+func sortedStrings(m map[string]string) []string {
+	keys := make([]string, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	return keys
 }
 
 func resolve(body string, first int) string {
@@ -317,13 +347,21 @@ func patch(b []byte, mark string, v int) {
 	}
 }
 
-func serialize(d Doc, bodies []string, pages int) []byte {
+func serialize(d Doc, bodies []string, pages, info int) []byte {
 	streams := d.XRefStream || d.ObjStream
 	next := len(bodies) + 1
 	alloc := func() int { next++; return next - 1 }
+	root := "/Root 1 0 R"
+	if info != 0 {
+		root += fmt.Sprintf(" /Info %d 0 R", info)
+	}
+	version := d.Version
+	if version == "" {
+		version = "1.7"
+	}
 
 	var w out
-	w.WriteString("%PDF-1.7\n%\xe2\xe3\xcf\xd3\n")
+	w.WriteString("%PDF-" + version + "\n%\xe2\xe3\xcf\xd3\n")
 	main := map[int]entry{0: {0, 0, 65535}}
 
 	// Linearization dictionary and first-page section, at the start.
@@ -337,7 +375,7 @@ func serialize(d Doc, bodies []string, pages int) []byte {
 			fpStream = alloc()
 		}
 		// Written before the objects exist: size and /Prev are patched.
-		firstPage = w.section(fp, sizeMark, "/Root 1 0 R /Prev "+prevMark, fpStream)
+		firstPage = w.section(fp, sizeMark, root+" /Prev "+prevMark, fpStream)
 	}
 
 	var packed []int
@@ -362,7 +400,7 @@ func serialize(d Doc, bodies []string, pages int) []byte {
 		main[stm] = entry{1, w.object(stm, Stream(fmt.Sprintf("<< /Type /ObjStm /N %d /First %d >>", len(packed), first), []byte(content))), 0}
 	}
 
-	trailer := "/Root 1 0 R"
+	trailer := root
 	mainStream := 0
 	if streams {
 		mainStream = alloc()

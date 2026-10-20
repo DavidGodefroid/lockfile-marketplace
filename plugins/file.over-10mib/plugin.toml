@@ -1,0 +1,8 @@
+name = "file.over-10mib"
+version = "1.0.0"
+protocol = 1
+question = "Is the file larger than 10 MiB?"
+one = "size > 10485760 bytes"
+zero = "size <= 10485760 bytes"
+accepts = ["*/*"]
+limits = { cpu_s = 10, memory = "128MiB", timeout_s = 20 }

@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "signed.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "updated-after-signing.pdf"
+answer = 0
+
+[[case]]
+file = "object-stream-updated.pdf"
+answer = 0
+
+[[case]]
+file = "partial-range.pdf"
+answer = 0
+
+[[case]]
+file = "empty-field.pdf"
+answer = 0

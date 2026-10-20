@@ -1,0 +1,8 @@
+name = "pdf.has-signature"
+version = "1.0.0"
+protocol = 1
+question = "Is the PDF digitally signed?"
+one  = "some signature field (/FT /Sig, inherited) of the AcroForm field tree has a value with a /ByteRange and a /Contents; document time stamps count; the signature is not verified"
+zero = "no signature field has such a value (no form, no signature field, or only empty signature fields)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

@@ -1,0 +1,8 @@
+name = "pdf.is-linearized"
+version = "1.0.0"
+protocol = 1
+question = "Is the PDF linearized for fast web view?"
+one  = "the first object in the first 1024 bytes is a linearization dictionary (/Linearized) whose /L equals the file size; hint tables are not checked"
+zero = "no linearization dictionary, or its /L differs from the file size (for example the file was updated after linearization)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

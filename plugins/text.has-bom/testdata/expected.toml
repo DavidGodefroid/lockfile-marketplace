@@ -1,0 +1,52 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "utf8.txt"
+answer = 1
+
+[[case]]
+file = "utf8-only.txt"
+answer = 1
+
+[[case]]
+file = "utf8-truncated.txt"
+answer = 0
+
+[[case]]
+file = "utf16be.txt"
+answer = 1
+
+[[case]]
+file = "utf16le.txt"
+answer = 1
+
+[[case]]
+file = "utf32le.txt"
+answer = 1
+
+[[case]]
+file = "utf32be.txt"
+answer = 1
+
+[[case]]
+file = "utf32be-truncated.txt"
+answer = 0
+
+[[case]]
+file = "one-byte.txt"
+answer = 0
+
+[[case]]
+file = "bom-not-at-start.txt"
+answer = 0

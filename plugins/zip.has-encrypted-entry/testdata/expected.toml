@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty-archive.zip"
+answer = 0
+
+[[case]]
+file = "plain.zip"
+answer = 0
+
+[[case]]
+file = "other-flags.zip"
+answer = 0
+
+[[case]]
+file = "zipcrypto-store.zip"
+answer = 1
+
+[[case]]
+file = "zipcrypto-deflate.zip"
+answer = 1
+
+[[case]]
+file = "aes.zip"
+answer = 1
+
+[[case]]
+file = "aes-no-flag.zip"
+answer = 1

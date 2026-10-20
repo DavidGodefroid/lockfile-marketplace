@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "signed.pdf"
+answer = 1
+
+[[case]]
+file = "timestamp.pdf"
+answer = 1
+
+[[case]]
+file = "inherited-type.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "empty-field.pdf"
+answer = 0
+
+[[case]]
+file = "text-field.pdf"
+answer = 0
+
+[[case]]
+file = "orphan-value.pdf"
+answer = 0

@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-claim.pdf"
+answer = 0
+
+[[case]]
+file = "info-key.pdf"
+answer = 1
+
+[[case]]
+file = "info-other-keys.pdf"
+answer = 0
+
+[[case]]
+file = "xmp-property.pdf"
+answer = 1
+
+[[case]]
+file = "xmp-wrong-namespace.pdf"
+answer = 0
+
+[[case]]
+file = "xmp-pdfa-only.pdf"
+answer = 0

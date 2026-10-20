@@ -211,3 +211,28 @@ func TestEncrypt(t *testing.T) {
 		}
 	}
 }
+
+func TestVersionAndInfo(t *testing.T) {
+	for _, layout := range []func(*pdfxtest.Doc){
+		func(*pdfxtest.Doc) {},
+		func(d *pdfxtest.Doc) { d.XRefStream = true },
+		func(d *pdfxtest.Doc) { d.Linearized = true },
+	} {
+		d := pdfxtest.Doc{Pages: []pdfxtest.Page{{}}, Version: "2.0", Info: map[string]string{"/Title": "(sample)"}}
+		layout(&d)
+		b := pdfxtest.Write(d)
+		if !bytes.HasPrefix(b, []byte("%PDF-2.0\n")) {
+			t.Fatalf("header %q", b[:9])
+		}
+		ctx, err := pdfx.Open(bytes.NewReader(b))
+		if err != nil {
+			t.Fatalf("%v\n%q", err, b)
+		}
+		if ctx.Info == nil {
+			t.Fatal("no /Info in the trailer")
+		}
+	}
+	if b := pdfxtest.Write(pdfxtest.Doc{Pages: []pdfxtest.Page{{}}}); !bytes.HasPrefix(b, []byte("%PDF-1.7\n")) || bytes.Contains(b, []byte("/Info")) {
+		t.Fatal("default header or unexpected /Info")
+	}
+}

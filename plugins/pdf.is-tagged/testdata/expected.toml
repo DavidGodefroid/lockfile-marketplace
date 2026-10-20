@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "untagged.pdf"
+answer = 0
+
+[[case]]
+file = "tagged.pdf"
+answer = 1
+
+[[case]]
+file = "tree-only.pdf"
+answer = 0
+
+[[case]]
+file = "marked-only.pdf"
+answer = 0
+
+[[case]]
+file = "marked-false.pdf"
+answer = 0

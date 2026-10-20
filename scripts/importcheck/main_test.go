@@ -76,6 +76,15 @@ func TestImportCheckAllowsSdk(t *testing.T) {
 	}
 }
 
+func TestImportCheckAllowsFormatx(t *testing.T) {
+	root := repo(t, []string{"os", "github.com/DavidGodefroid/lockfile-marketplace/lib/formatx/zipx"}, map[string]string{
+		"go.mod": goMod + "replace github.com/DavidGodefroid/lockfile-marketplace/lib/formatx => ../../lib/formatx\n",
+	})
+	if v, err := Check(root); err != nil || len(v) != 0 {
+		t.Fatalf("Check = %v, %v", v, err)
+	}
+}
+
 func TestImportCheckIgnoresTests(t *testing.T) {
 	root := repo(t, []string{"os"}, map[string]string{
 		"plugin_test.go": "package main\n\nimport (\n\t_ \"os/exec\"\n\t_ \"net\"\n)\n",

@@ -1,0 +1,8 @@
+name = "docx.has-tracked-changes"
+version = "1.0.0"
+protocol = 1
+question = "Does the Word document contain tracked changes?"
+one = "a word/*.xml part has a WordprocessingML revision element: ins, del, moveFrom, moveTo, cellIns, cellDel or a *Change element"
+zero = "no word/*.xml part has a WordprocessingML revision element (change tracking may still be turned on)"
+accepts = ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/zip"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }
