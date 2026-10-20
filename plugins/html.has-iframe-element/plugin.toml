@@ -1,0 +1,8 @@
+name = "html.has-iframe-element"
+version = "1.0.0"
+protocol = 1
+question = "Does the file contain an HTML iframe start tag?"
+one = "a case-insensitive \"<iframe\" followed by whitespace, '/' or '>' appears anywhere in the file, comments included"
+zero = "no such tag: \"<iframe\" followed by another character or ending the file, and <frame> or <object>, do not count"
+accepts = ["*/*"]
+limits = { cpu_s = 10, memory = "128MiB", timeout_s = 20 }
