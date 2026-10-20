@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-metadata.pdf"
+answer = 0
+
+[[case]]
+file = "empty-mod-date.pdf"
+answer = 0
+
+[[case]]
+file = "mod-date.pdf"
+answer = 1
+
+[[case]]
+file = "creation-date-only.pdf"
+answer = 0
+
+[[case]]
+file = "xmp-modify-date.pdf"
+answer = 1
+
+[[case]]
+file = "xmp-modify-date-attribute.pdf"
+answer = 1
+
+[[case]]
+file = "xmp-create-date-only.pdf"
+answer = 0
