@@ -36,6 +36,7 @@ use (
 	./plugins/pdf.needs-password
 	./plugins/pdf.parses
 	./plugins/pdf.printing-restricted
+	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
 	./scripts/importcheck
