@@ -137,6 +137,7 @@ use (
 	./plugins/svg.has-script
 	./plugins/text.has-bom
 	./plugins/text.has-mixed-line-endings
+	./plugins/text.has-nul-byte
 	./plugins/text.valid-utf8
 	./plugins/xlsx.has-external-links
 	./plugins/xlsx.has-formulas
