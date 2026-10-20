@@ -31,6 +31,7 @@ use (
 	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
 	./plugins/pdf.has-calculated-field
+	./plugins/pdf.has-certification-signature
 	./plugins/pdf.has-creation-date
 	./plugins/pdf.has-creator-tool
 	./plugins/pdf.has-custom-info-key
@@ -45,6 +46,7 @@ use (
 	./plugins/pdf.has-mixed-orientation
 	./plugins/pdf.has-mixed-page-sizes
 	./plugins/pdf.has-modification-date
+	./plugins/pdf.has-multiple-signatures
 	./plugins/pdf.has-named-destinations
 	./plugins/pdf.has-non-a4-page
 	./plugins/pdf.has-optional-content
@@ -78,7 +80,6 @@ use (
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-multiple-signatures
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
