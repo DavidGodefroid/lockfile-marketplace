@@ -12,6 +12,7 @@ use (
 	./plugins/format.is-pdf
 	./plugins/html.has-script-element
 	./plugins/image.decodes
+	./plugins/image.has-gps-exif
 	./plugins/json.parses
 	./plugins/ooxml.has-macros
 	./plugins/ooxml.is-package
