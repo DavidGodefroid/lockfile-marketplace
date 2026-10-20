@@ -24,6 +24,7 @@ use (
 	./plugins/image.has-icc-profile
 	./plugins/image.has-trailing-data
 	./plugins/image.is-animated
+	./plugins/image.is-cmyk-jpeg
 	./plugins/json.has-duplicate-keys
 	./plugins/json.nesting-over-64
 	./plugins/json.parses
