@@ -37,6 +37,7 @@ use (
 	./plugins/pdf.has-ccitt-image
 	./plugins/pdf.has-certification-signature
 	./plugins/pdf.has-cid-font
+	./plugins/pdf.has-cmyk-image
 	./plugins/pdf.has-creation-date
 	./plugins/pdf.has-creator-tool
 	./plugins/pdf.has-cropped-page
