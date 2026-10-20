@@ -17,6 +17,7 @@ use (
 	./plugins/ooxml.has-macros
 	./plugins/ooxml.is-package
 	./plugins/pdf.all-pages-blank
+	./plugins/pdf.claims-facturx
 	./plugins/pdf.claims-pdfa
 	./plugins/pdf.claims-pdfua
 	./plugins/pdf.claims-pdfx
@@ -51,6 +52,7 @@ use (
 	./plugins/pdf.has-page-labels
 	./plugins/pdf.has-piece-info
 	./plugins/pdf.has-producer
+	./plugins/pdf.has-required-field
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
 	./plugins/pdf.has-subject
@@ -73,7 +75,6 @@ use (
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.claims-facturx
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
