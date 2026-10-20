@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty-sheets.xlsx"
+answer = 0
+
+[[case]]
+file = "visible.xlsx"
+answer = 0
+
+[[case]]
+file = "hidden.xlsx"
+answer = 1
+
+[[case]]
+file = "very-hidden.xlsm"
+answer = 1
+
+[[case]]
+file = "strict-hidden.xlsx"
+answer = 1
+
+[[case]]
+file = "state-elsewhere.xlsx"
+answer = 0
+
+[[case]]
+file = "foreign-sheet.xlsx"
+answer = 0
+
+[[case]]
+file = "hidden-outside-workbook.xlsx"
+answer = 0
