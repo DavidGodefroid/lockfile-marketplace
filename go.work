@@ -29,6 +29,8 @@ use (
 	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
 	./plugins/pdf.has-creation-date
+	./plugins/pdf.has-creator-tool
+	./plugins/pdf.has-custom-info-key
 	./plugins/pdf.has-embedded-file
 	./plugins/pdf.has-external-link
 	./plugins/pdf.has-form-fields
@@ -60,7 +62,6 @@ use (
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-creator-tool
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
