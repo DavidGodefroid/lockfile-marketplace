@@ -28,6 +28,7 @@ use (
 	./plugins/pdf.has-author
 	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
+	./plugins/pdf.has-creation-date
 	./plugins/pdf.has-embedded-file
 	./plugins/pdf.has-external-link
 	./plugins/pdf.has-form-fields
