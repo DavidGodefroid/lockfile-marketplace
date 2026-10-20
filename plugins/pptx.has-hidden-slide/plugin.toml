@@ -1,0 +1,8 @@
+name = "pptx.has-hidden-slide"
+version = "1.0.0"
+protocol = 1
+question = "Does the PowerPoint presentation contain a hidden slide?"
+one = "a slide of the presentation part has a PresentationML sld root with show set to false"
+zero = "no slide of the presentation part has a PresentationML sld root with show set to false"
+accepts = ["application/zip"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

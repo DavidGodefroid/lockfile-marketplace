@@ -125,6 +125,7 @@ use (
 	./plugins/pdf.truncated
 	./plugins/pdf.uses-aes256-encryption
 	./plugins/pdf.uses-rc4-encryption
+	./plugins/pptx.has-hidden-slide
 	./plugins/pptx.has-speaker-notes
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
