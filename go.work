@@ -135,6 +135,7 @@ use (
 	./plugins/pptx.has-speaker-notes
 	./plugins/rtf.has-embedded-object
 	./plugins/svg.has-script
+	./plugins/text.has-bidi-control
 	./plugins/text.has-bom
 	./plugins/text.has-mixed-line-endings
 	./plugins/text.has-nul-byte
