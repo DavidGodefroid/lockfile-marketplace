@@ -1,0 +1,8 @@
+name = "docx.has-comments"
+version = "1.0.0"
+protocol = 1
+question = "Does the Word document contain comments?"
+one = "a word/*.xml part of the package contains a WordprocessingML comment element"
+zero = "no word/*.xml part of the package contains a WordprocessingML comment element"
+accepts = ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/zip"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }
