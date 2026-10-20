@@ -1,0 +1,52 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "opaque-state.pdf"
+answer = 0
+
+[[case]]
+file = "compatible-blend.pdf"
+answer = 0
+
+[[case]]
+file = "fill-alpha.pdf"
+answer = 1
+
+[[case]]
+file = "stroke-alpha-untyped.pdf"
+answer = 1
+
+[[case]]
+file = "blend-mode.pdf"
+answer = 1
+
+[[case]]
+file = "blend-array.pdf"
+answer = 1
+
+[[case]]
+file = "soft-mask.pdf"
+answer = 1
+
+[[case]]
+file = "indirect-state.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "orphan-state.pdf"
+answer = 1
+
+[[case]]
+file = "opaque-image.pdf"
+answer = 0
+
+[[case]]
+file = "soft-masked-image.pdf"
+answer = 1
