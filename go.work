@@ -59,10 +59,12 @@ use (
 	./plugins/pdf.has-piece-info
 	./plugins/pdf.has-producer
 	./plugins/pdf.has-read-only-field
+	./plugins/pdf.has-remote-goto-action
 	./plugins/pdf.has-required-field
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
 	./plugins/pdf.has-subject
+	./plugins/pdf.has-submit-action
 	./plugins/pdf.has-text-layer
 	./plugins/pdf.has-thumbnails
 	./plugins/pdf.has-title
@@ -83,7 +85,6 @@ use (
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-submit-action
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
