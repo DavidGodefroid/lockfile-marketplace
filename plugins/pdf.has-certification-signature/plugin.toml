@@ -1,0 +1,8 @@
+name = "pdf.has-certification-signature"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF carry a certification signature?"
+one  = "the catalog /Perms dictionary has a /DocMDP signature dictionary (the author certified the document and set which changes are allowed); the signature itself is not verified"
+zero = "no /Perms, or /Perms has no /DocMDP (approval signatures and usage rights alone do not count)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

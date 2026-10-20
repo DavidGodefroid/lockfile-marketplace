@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-layers.pdf"
+answer = 0
+
+[[case]]
+file = "hidden.pdf"
+answer = 1
+
+[[case]]
+file = "hidden-indirect.pdf"
+answer = 1
+
+[[case]]
+file = "visible.pdf"
+answer = 0
+
+[[case]]
+file = "empty-off.pdf"
+answer = 0

@@ -1,0 +1,16 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-af.pdf"
+answer = 0
+
+[[case]]
+file = "empty-af.pdf"
+answer = 0
+
+[[case]]
+file = "one-file.pdf"
+answer = 1
+
+[[case]]
+file = "indirect-af.pdf"
+answer = 1

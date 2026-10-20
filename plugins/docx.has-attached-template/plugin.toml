@@ -1,0 +1,8 @@
+name = "docx.has-attached-template"
+version = "1.0.0"
+protocol = 1
+question = "Is the Word document attached to a template?"
+one = "the settings part of the Word document has an attachedTemplate relationship"
+zero = "the Word document has no settings part, or its settings part has no attachedTemplate relationship"
+accepts = ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/zip"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

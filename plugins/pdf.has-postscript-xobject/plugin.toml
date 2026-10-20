@@ -1,0 +1,8 @@
+name = "pdf.has-postscript-xobject"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF hold a PostScript XObject?"
+one  = "some stream of the file, used or not, has /Subtype /PS, or is a form XObject with /Subtype2 /PS"
+zero = "no stream of the file is a PostScript XObject"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

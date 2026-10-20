@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "open-action-gotor.pdf"
+answer = 1
+
+[[case]]
+file = "link-gotoe.pdf"
+answer = 1
+
+[[case]]
+file = "next-chain.pdf"
+answer = 1
+
+[[case]]
+file = "orphan.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "local-goto.pdf"
+answer = 0
+
+[[case]]
+file = "not-an-action.pdf"
+answer = 0

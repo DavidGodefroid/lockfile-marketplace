@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "multilingual.txt"
+answer = 0
+
+[[case]]
+file = "mark-only.txt"
+answer = 0
+
+[[case]]
+file = "neighbours.txt"
+answer = 0
+
+[[case]]
+file = "lre.txt"
+answer = 1
+
+[[case]]
+file = "rlo.txt"
+answer = 1
+
+[[case]]
+file = "lri.txt"
+answer = 1
+
+[[case]]
+file = "pdi-only.txt"
+answer = 1
+
+[[case]]
+file = "split-rlo.txt"
+answer = 1

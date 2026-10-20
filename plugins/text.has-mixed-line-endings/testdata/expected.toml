@@ -1,0 +1,52 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "no-newline.txt"
+answer = 0
+
+[[case]]
+file = "lf.txt"
+answer = 0
+
+[[case]]
+file = "crlf.txt"
+answer = 0
+
+[[case]]
+file = "cr.txt"
+answer = 0
+
+[[case]]
+file = "crlf-blank-lines.txt"
+answer = 0
+
+[[case]]
+file = "cr-blank-lines.txt"
+answer = 0
+
+[[case]]
+file = "crlf-lf.txt"
+answer = 1
+
+[[case]]
+file = "crlf-cr.txt"
+answer = 1
+
+[[case]]
+file = "lf-cr.txt"
+answer = 1
+
+[[case]]
+file = "lf-crlf-reversed.txt"
+answer = 1
+
+[[case]]
+file = "trailing-cr.txt"
+answer = 1

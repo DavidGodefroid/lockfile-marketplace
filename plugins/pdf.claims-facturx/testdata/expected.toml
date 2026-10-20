@@ -1,0 +1,36 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-metadata.pdf"
+answer = 0
+
+[[case]]
+file = "xmp-without-facturx.pdf"
+answer = 0
+
+[[case]]
+file = "pdfa-only.pdf"
+answer = 0
+
+[[case]]
+file = "facturx-without-level.pdf"
+answer = 0
+
+[[case]]
+file = "facturx-element.pdf"
+answer = 1
+
+[[case]]
+file = "facturx-attribute.pdf"
+answer = 1
+
+[[case]]
+file = "facturx-other-prefix.pdf"
+answer = 1
+
+[[case]]
+file = "facturx-wrong-namespace.pdf"
+answer = 0
+
+[[case]]
+file = "facturx-utf16.pdf"
+answer = 1

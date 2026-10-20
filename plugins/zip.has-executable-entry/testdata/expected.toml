@@ -1,0 +1,60 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty-archive.zip"
+answer = 0
+
+[[case]]
+file = "plain.zip"
+answer = 0
+
+[[case]]
+file = "dirs-only.zip"
+answer = 0
+
+[[case]]
+file = "near-misses.zip"
+answer = 0
+
+[[case]]
+file = "docx-as-zip.zip"
+answer = 0
+
+[[case]]
+file = "pe.zip"
+answer = 1
+
+[[case]]
+file = "pe-stored.zip"
+answer = 1
+
+[[case]]
+file = "elf.zip"
+answer = 1
+
+[[case]]
+file = "macho32-be.zip"
+answer = 1
+
+[[case]]
+file = "macho32-le.zip"
+answer = 1
+
+[[case]]
+file = "macho64-be.zip"
+answer = 1
+
+[[case]]
+file = "macho64-le.zip"
+answer = 1
+
+[[case]]
+file = "macho-fat.zip"
+answer = 1
+
+[[case]]
+file = "macho-fat64.zip"
+answer = 1
+
+[[case]]
+file = "exe-after-dir.zip"
+answer = 1

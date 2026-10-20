@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "cmyk.jpg"
+answer = 1
+
+[[case]]
+file = "ycck.jpg"
+answer = 1
+
+[[case]]
+file = "four-component-no-adobe.jpg"
+answer = 1
+
+[[case]]
+file = "gray.jpg"
+answer = 0
+
+[[case]]
+file = "ycbcr.jpg"
+answer = 0

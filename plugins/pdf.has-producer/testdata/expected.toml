@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-metadata.pdf"
+answer = 0
+
+[[case]]
+file = "empty-producer.pdf"
+answer = 0
+
+[[case]]
+file = "blank-producer.pdf"
+answer = 0
+
+[[case]]
+file = "producer.pdf"
+answer = 1
+
+[[case]]
+file = "utf16-hex-producer.pdf"
+answer = 1
+
+[[case]]
+file = "creator-only.pdf"
+answer = 0
+
+[[case]]
+file = "xmp-pdf-producer.pdf"
+answer = 1
+
+[[case]]
+file = "xmp-pdf-producer-attr.pdf"
+answer = 1
+
+[[case]]
+file = "xmp-other-namespace.pdf"
+answer = 0
+
+[[case]]
+file = "xmp-without-producer.pdf"
+answer = 0

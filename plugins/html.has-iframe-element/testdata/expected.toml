@@ -1,0 +1,60 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "plain.html"
+answer = 0
+
+[[case]]
+file = "iframe.html"
+answer = 1
+
+[[case]]
+file = "iframe-upper-src.html"
+answer = 1
+
+[[case]]
+file = "iframe-self-closing.html"
+answer = 1
+
+[[case]]
+file = "iframe-newline.html"
+answer = 1
+
+[[case]]
+file = "iframe-in-comment.html"
+answer = 1
+
+[[case]]
+file = "iframe-after-lt.html"
+answer = 1
+
+[[case]]
+file = "split-buffer.html"
+answer = 1
+
+[[case]]
+file = "iframes.html"
+answer = 0
+
+[[case]]
+file = "iframe-at-eof.html"
+answer = 0
+
+[[case]]
+file = "frame.html"
+answer = 0
+
+[[case]]
+file = "iframe-dash.html"
+answer = 0

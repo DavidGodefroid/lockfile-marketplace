@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "signed.pdf"
+answer = 0
+
+[[case]]
+file = "pades.pdf"
+answer = 0
+
+[[case]]
+file = "timestamp.pdf"
+answer = 1
+
+[[case]]
+file = "type-only.pdf"
+answer = 1
+
+[[case]]
+file = "subfilter-only.pdf"
+answer = 1
+
+[[case]]
+file = "signed-then-timestamped.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "empty-field.pdf"
+answer = 0
+
+[[case]]
+file = "orphan-timestamp.pdf"
+answer = 0

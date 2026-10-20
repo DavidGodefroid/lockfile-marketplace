@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "jpeg-image.pdf"
+answer = 0
+
+[[case]]
+file = "jpx-image.pdf"
+answer = 1
+
+[[case]]
+file = "jpx-in-chain.pdf"
+answer = 1
+
+[[case]]
+file = "flate-chain.pdf"
+answer = 0
+
+[[case]]
+file = "orphan-jpx.pdf"
+answer = 1
+
+[[case]]
+file = "indirect-filter.pdf"
+answer = 1

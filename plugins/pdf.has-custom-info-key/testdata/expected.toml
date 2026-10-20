@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-info.pdf"
+answer = 0
+
+[[case]]
+file = "empty-info.pdf"
+answer = 0
+
+[[case]]
+file = "standard-keys.pdf"
+answer = 0
+
+[[case]]
+file = "custom-key.pdf"
+answer = 1
+
+[[case]]
+file = "custom-key-empty-value.pdf"
+answer = 1
+
+[[case]]
+file = "custom-key-null.pdf"
+answer = 0
+
+[[case]]
+file = "lowercase-standard-name.pdf"
+answer = 1

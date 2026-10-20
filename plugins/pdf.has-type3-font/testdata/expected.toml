@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "cid-font.pdf"
+answer = 0
+
+[[case]]
+file = "type3-page.pdf"
+answer = 1
+
+[[case]]
+file = "orphan-type3.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "not-a-font.pdf"
+answer = 0

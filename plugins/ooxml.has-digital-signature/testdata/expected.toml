@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "sample.xlsx"
+answer = 0
+
+[[case]]
+file = "signed.docx"
+answer = 1
+
+[[case]]
+file = "signed-absolute.docx"
+answer = 1
+
+[[case]]
+file = "dangling-signature.docx"
+answer = 0
+
+[[case]]
+file = "origin-only.docx"
+answer = 0
+
+[[case]]
+file = "no-origin.docx"
+answer = 0

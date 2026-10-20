@@ -199,3 +199,30 @@ func TestLooksTruncated(t *testing.T) {
 		t.Error("text file has an answer")
 	}
 }
+
+func TestRead(t *testing.T) {
+	// A PostScript XObject drawn from a page fails pdfcpu's validation.
+	ps := pdfxtest.Doc{
+		Pages:   []pdfxtest.Page{{Content: "q /X0 Do Q", Resources: "<< /XObject << /X0 {{obj 0}} >> >>"}},
+		Objects: []string{pdfxtest.Stream("<< /Type /XObject /Subtype /PS >>", []byte("sample"))},
+	}
+	b := pdfxtest.Write(ps)
+	if _, err := Open(bytes.NewReader(b)); err == nil {
+		t.Fatal("Open: want a validation error")
+	}
+	ctx, err := Read(bytes.NewReader(b))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if ctx.PageCount != 1 {
+		t.Errorf("PageCount = %d, want 1", ctx.PageCount)
+	}
+	for name, b := range map[string][]byte{
+		"empty": nil,
+		"text":  []byte("sample text, not a PDF\n"),
+	} {
+		if _, err := Read(bytes.NewReader(b)); err == nil {
+			t.Errorf("%s: read", name)
+		}
+	}
+}

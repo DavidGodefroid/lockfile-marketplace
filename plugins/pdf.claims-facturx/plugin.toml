@@ -1,0 +1,8 @@
+name = "pdf.claims-facturx"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF declare Factur-X / ZUGFeRD conformance in its XMP metadata?"
+one  = "the catalog /Metadata XMP contains a ConformanceLevel property in the Factur-X namespace (urn:factur-x:pdfa:CrossIndustryDocument:invoice:1p0#); the embedded invoice itself is not checked"
+zero = "no catalog XMP metadata, or no Factur-X ConformanceLevel property in it"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

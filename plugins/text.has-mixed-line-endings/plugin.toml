@@ -1,0 +1,8 @@
+name = "text.has-mixed-line-endings"
+version = "1.0.0"
+protocol = 1
+question = "Does the file mix line ending styles?"
+one = "the file uses at least two of CRLF (0D 0A), lone LF (0A) and lone CR (0D)"
+zero = "the file uses a single line ending style, or has no line ending at all"
+accepts = ["*/*"]
+limits = { cpu_s = 10, memory = "128MiB", timeout_s = 20 }

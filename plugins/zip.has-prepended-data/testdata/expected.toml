@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.zip"
+answer = 0
+
+[[case]]
+file = "empty-archive.zip"
+answer = 0
+
+[[case]]
+file = "stub-prefix.zip"
+answer = 1
+
+[[case]]
+file = "one-byte-prefix.zip"
+answer = 1
+
+[[case]]
+file = "prefix-empty-archive.zip"
+answer = 1

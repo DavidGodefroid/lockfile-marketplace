@@ -1,0 +1,48 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "top-level-dup.json"
+answer = 1
+
+[[case]]
+file = "nested-dup.json"
+answer = 1
+
+[[case]]
+file = "escaped-dup.json"
+answer = 1
+
+[[case]]
+file = "dup-after-nested.json"
+answer = 1
+
+[[case]]
+file = "dup-empty-key.json"
+answer = 1
+
+[[case]]
+file = "unique.json"
+answer = 0
+
+[[case]]
+file = "sibling-objects.json"
+answer = 0
+
+[[case]]
+file = "parent-child-same-key.json"
+answer = 0
+
+[[case]]
+file = "key-equals-value.json"
+answer = 0
+
+[[case]]
+file = "case-differs.json"
+answer = 0
+
+[[case]]
+file = "empty-object.json"
+answer = 0
+
+[[case]]
+file = "scalar.json"
+answer = 0

@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty-archive.zip"
+answer = 0
+
+[[case]]
+file = "plain.zip"
+answer = 0
+
+[[case]]
+file = "ratio-100.zip"
+answer = 0
+
+[[case]]
+file = "ratio-over-100.zip"
+answer = 1
+
+[[case]]
+file = "zero-compressed.zip"
+answer = 1
+
+[[case]]
+file = "deflated-zeros.zip"
+answer = 1

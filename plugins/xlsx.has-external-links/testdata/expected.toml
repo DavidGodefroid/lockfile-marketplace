@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.xlsx"
+answer = 0
+
+[[case]]
+file = "linked.xlsx"
+answer = 1
+
+[[case]]
+file = "strict.xlsx"
+answer = 1
+
+[[case]]
+file = "macro.xlsm"
+answer = 1
+
+[[case]]
+file = "renamed.xlsx"
+answer = 1
+
+[[case]]
+file = "worksheet-only.xlsx"
+answer = 0
+
+[[case]]
+file = "on-sheet.xlsx"
+answer = 0

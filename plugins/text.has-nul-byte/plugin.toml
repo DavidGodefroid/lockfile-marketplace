@@ -1,0 +1,8 @@
+name = "text.has-nul-byte"
+version = "1.0.0"
+protocol = 1
+question = "Does the file contain a NUL byte?"
+one = "at least one byte of the file is 0x00"
+zero = "no byte is 0x00, including an empty file"
+accepts = ["*/*"]
+limits = { cpu_s = 10, memory = "128MiB", timeout_s = 20 }

@@ -1,0 +1,8 @@
+name = "rtf.has-embedded-object"
+version = "1.0.0"
+protocol = 1
+question = "Does the RTF document embed an object (OLE or linked)?"
+one = "the file starts with {\\rtf and contains the \\object control word outside \\bin data"
+zero = "an RTF file without the \\object control word (an escaped \\\\object or a longer word such as \\objectx does not count)"
+accepts = ["*/*"]
+limits = { cpu_s = 10, memory = "128MiB", timeout_s = 20 }

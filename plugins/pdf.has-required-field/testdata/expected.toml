@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "required.pdf"
+answer = 1
+
+[[case]]
+file = "required-among-flags.pdf"
+answer = 1
+
+[[case]]
+file = "second-field-required.pdf"
+answer = 1
+
+[[case]]
+file = "required-parent.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "read-only.pdf"
+answer = 0
+
+[[case]]
+file = "no-flags.pdf"
+answer = 0
+
+[[case]]
+file = "empty-form.pdf"
+answer = 0
+
+[[case]]
+file = "orphan-field.pdf"
+answer = 0

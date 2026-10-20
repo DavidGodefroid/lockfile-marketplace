@@ -1,0 +1,44 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "minimal.xml"
+answer = 0
+
+[[case]]
+file = "declaration-only.xml"
+answer = 0
+
+[[case]]
+file = "word-document.xml"
+answer = 0
+
+[[case]]
+file = "commented-doctype.xml"
+answer = 0
+
+[[case]]
+file = "cdata-doctype.xml"
+answer = 0
+
+[[case]]
+file = "doctype.xml"
+answer = 1
+
+[[case]]
+file = "doctype-after-declaration.xml"
+answer = 1
+
+[[case]]
+file = "doctype-system.xml"
+answer = 1
+
+[[case]]
+file = "doctype-internal-subset.xml"
+answer = 1
+
+[[case]]
+file = "bom-doctype.xml"
+answer = 1
+
+[[case]]
+file = "latin1-doctype.xml"
+answer = 1

@@ -1,0 +1,36 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "sample.xlsx"
+answer = 0
+
+[[case]]
+file = "thumbnail.docx"
+answer = 1
+
+[[case]]
+file = "thumbnail-absolute.docx"
+answer = 1
+
+[[case]]
+file = "thumbnail-strict.docx"
+answer = 1
+
+[[case]]
+file = "dangling.docx"
+answer = 0
+
+[[case]]
+file = "external.docx"
+answer = 0
+
+[[case]]
+file = "unrelated-part.docx"
+answer = 0
+
+[[case]]
+file = "no-root-rels.docx"
+answer = 0

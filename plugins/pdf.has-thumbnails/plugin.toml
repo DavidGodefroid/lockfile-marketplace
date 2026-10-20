@@ -1,0 +1,8 @@
+name = "pdf.has-thumbnails"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF embed a thumbnail image for at least one page?"
+one  = "at least one page dictionary has a non-null /Thumb entry"
+zero = "no page dictionary has a /Thumb entry"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

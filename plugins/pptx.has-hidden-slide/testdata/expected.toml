@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "visible.pptx"
+answer = 0
+
+[[case]]
+file = "show-true.pptx"
+answer = 0
+
+[[case]]
+file = "hidden.pptx"
+answer = 1
+
+[[case]]
+file = "hidden-false.pptx"
+answer = 1
+
+[[case]]
+file = "strict-hidden.pptx"
+answer = 1
+
+[[case]]
+file = "second-hidden.ppsm"
+answer = 1
+
+[[case]]
+file = "no-slides.pptx"
+answer = 0
+
+[[case]]
+file = "show-elsewhere.pptx"
+answer = 0
+
+[[case]]
+file = "foreign-show.pptx"
+answer = 0
+
+[[case]]
+file = "orphan-hidden.pptx"
+answer = 0

@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "still.png"
+answer = 0
+
+[[case]]
+file = "text-chunk.png"
+answer = 0
+
+[[case]]
+file = "animated.png"
+answer = 1
+
+[[case]]
+file = "still.gif"
+answer = 0
+
+[[case]]
+file = "two-frames.gif"
+answer = 1
+
+[[case]]
+file = "three-frames.gif"
+answer = 1
+
+[[case]]
+file = "still.jpg"
+answer = 0
