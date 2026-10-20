@@ -51,6 +51,7 @@ use (
 	./plugins/pdf.has-image
 	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript
+	./plugins/pdf.has-jbig2-image
 	./plugins/pdf.has-launch-action
 	./plugins/pdf.has-lzw-stream
 	./plugins/pdf.has-markup-annotation

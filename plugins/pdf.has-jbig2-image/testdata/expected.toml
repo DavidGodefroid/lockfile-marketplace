@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "flate-image.pdf"
+answer = 0
+
+[[case]]
+file = "jbig2-not-stream.pdf"
+answer = 0
+
+[[case]]
+file = "jbig2-name.pdf"
+answer = 1
+
+[[case]]
+file = "jbig2-array.pdf"
+answer = 1
+
+[[case]]
+file = "jbig2-indirect.pdf"
+answer = 1
+
+[[case]]
+file = "jbig2-orphan.pdf"
+answer = 1
