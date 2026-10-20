@@ -24,6 +24,7 @@ use (
 	./plugins/pdf.has-mixed-page-sizes
 	./plugins/pdf.has-non-a4-page
 	./plugins/pdf.has-outline
+	./plugins/pdf.has-output-intent
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
 	./plugins/pdf.has-title
