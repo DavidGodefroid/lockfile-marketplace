@@ -34,6 +34,7 @@ use (
 	./plugins/pdf.has-blank-page
 	./plugins/pdf.has-bleed-box
 	./plugins/pdf.has-calculated-field
+	./plugins/pdf.has-ccitt-image
 	./plugins/pdf.has-certification-signature
 	./plugins/pdf.has-cid-font
 	./plugins/pdf.has-creation-date
