@@ -1,0 +1,64 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "text.pdf"
+answer = 1
+
+[[case]]
+file = "three-text-pages.pdf"
+answer = 1
+
+[[case]]
+file = "invisible-text.pdf"
+answer = 1
+
+[[case]]
+file = "text-then-invisible.pdf"
+answer = 1
+
+[[case]]
+file = "white-then-text.pdf"
+answer = 1
+
+[[case]]
+file = "image-with-ocr.pdf"
+answer = 1
+
+[[case]]
+file = "form-text.pdf"
+answer = 1
+
+[[case]]
+file = "nested-form-text.pdf"
+answer = 1
+
+[[case]]
+file = "nested-form-text-objstm.pdf"
+answer = 1
+
+[[case]]
+file = "blank.pdf"
+answer = 0
+
+[[case]]
+file = "image.pdf"
+answer = 0
+
+[[case]]
+file = "text-then-blank.pdf"
+answer = 0
+
+[[case]]
+file = "blank-then-text.pdf"
+answer = 0
+
+[[case]]
+file = "text-then-image.pdf"
+answer = 0
+
+[[case]]
+file = "text-white-text.pdf"
+answer = 0
+
+[[case]]
+file = "form-no-text.pdf"
+answer = 0
