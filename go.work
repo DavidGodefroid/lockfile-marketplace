@@ -16,6 +16,7 @@ use (
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.parses
 	./plugins/pdf.truncated
+	./plugins/pdf.single-page
 	./scripts/importcheck
 	./scripts/relcheck
 	./scripts/wfcheck
