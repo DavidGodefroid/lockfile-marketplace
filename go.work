@@ -35,6 +35,7 @@ use (
 	./plugins/pdf.has-bleed-box
 	./plugins/pdf.has-calculated-field
 	./plugins/pdf.has-certification-signature
+	./plugins/pdf.has-cid-font
 	./plugins/pdf.has-creation-date
 	./plugins/pdf.has-creator-tool
 	./plugins/pdf.has-cropped-page
