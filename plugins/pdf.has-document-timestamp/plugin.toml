@@ -1,0 +1,8 @@
+name = "pdf.has-document-timestamp"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF carry a document time stamp?"
+one  = "some signature value of the AcroForm field tree (with a /ByteRange and a /Contents) has /Type /DocTimeStamp or /SubFilter /ETSI.RFC3161; the time stamp is not verified"
+zero = "no signature value is a document time stamp (no form, no signature, or only ordinary signatures)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }
