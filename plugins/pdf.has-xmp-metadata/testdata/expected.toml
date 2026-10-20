@@ -1,0 +1,12 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-metadata.pdf"
+answer = 0
+
+[[case]]
+file = "xmp.pdf"
+answer = 1
+
+[[case]]
+file = "xmp-on-page-only.pdf"
+answer = 0
