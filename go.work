@@ -43,6 +43,7 @@ use (
 	./plugins/pdf.has-modification-date
 	./plugins/pdf.has-named-destinations
 	./plugins/pdf.has-non-a4-page
+	./plugins/pdf.has-optional-content
 	./plugins/pdf.has-outline
 	./plugins/pdf.has-output-intent
 	./plugins/pdf.has-page-labels
