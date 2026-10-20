@@ -1,0 +1,12 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "empty-viewer-preferences.pdf"
+answer = 0
+
+[[case]]
+file = "viewer-preferences.pdf"
+answer = 1
