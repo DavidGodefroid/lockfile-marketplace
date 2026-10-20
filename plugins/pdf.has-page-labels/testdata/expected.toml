@@ -1,0 +1,12 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-labels.pdf"
+answer = 0
+
+[[case]]
+file = "decimal-labels.pdf"
+answer = 1
+
+[[case]]
+file = "prefixed-labels.pdf"
+answer = 1
