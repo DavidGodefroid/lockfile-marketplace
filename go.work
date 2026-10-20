@@ -14,9 +14,10 @@ use (
 	./plugins/pdf.has-javascript
 	./plugins/pdf.has-non-a4-page
 	./plugins/pdf.has-rotated-page
+	./plugins/pdf.needs-password
 	./plugins/pdf.parses
-	./plugins/pdf.truncated
 	./plugins/pdf.single-page
+	./plugins/pdf.truncated
 	./scripts/importcheck
 	./scripts/relcheck
 	./scripts/wfcheck

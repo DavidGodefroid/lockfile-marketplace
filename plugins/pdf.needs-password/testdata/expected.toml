@@ -1,0 +1,12 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "user-password.pdf"
+answer = 1
+
+[[case]]
+file = "owner-only.pdf"
+answer = 0
