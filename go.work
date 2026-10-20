@@ -62,6 +62,7 @@ use (
 	./plugins/pdf.has-output-intent
 	./plugins/pdf.has-pades-signature
 	./plugins/pdf.has-page-labels
+	./plugins/pdf.has-page-larger-than-a3
 	./plugins/pdf.has-page-transition
 	./plugins/pdf.has-piece-info
 	./plugins/pdf.has-producer
@@ -88,12 +89,12 @@ use (
 	./plugins/pdf.needs-appearances
 	./plugins/pdf.needs-password
 	./plugins/pdf.opens-fullscreen
+	./plugins/pdf.over-100-pages
 	./plugins/pdf.parses
 	./plugins/pdf.printing-restricted
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-page-larger-than-a3
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
