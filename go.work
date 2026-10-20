@@ -16,6 +16,7 @@ use (
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.needs-password
 	./plugins/pdf.parses
+	./plugins/pdf.printing-restricted
 	./plugins/pdf.single-page
 	./plugins/pdf.truncated
 	./scripts/importcheck
