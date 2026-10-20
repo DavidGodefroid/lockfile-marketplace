@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "separation.pdf"
+answer = 1
+
+[[case]]
+file = "devicen.pdf"
+answer = 1
+
+[[case]]
+file = "indirect.pdf"
+answer = 1
+
+[[case]]
+file = "orphan.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "cmyk-only.pdf"
+answer = 0
+
+[[case]]
+file = "name-not-family.pdf"
+answer = 0
