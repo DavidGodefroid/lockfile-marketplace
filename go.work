@@ -78,6 +78,7 @@ use (
 	./plugins/pdf.has-text-layer
 	./plugins/pdf.has-thumbnails
 	./plugins/pdf.has-title
+	./plugins/pdf.has-type3-font
 	./plugins/pdf.has-unsigned-signature-field
 	./plugins/pdf.has-viewer-preferences
 	./plugins/pdf.has-xfa
@@ -95,8 +96,8 @@ use (
 	./plugins/pdf.printing-restricted
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
-	./plugins/pdf.truncated
 	./plugins/pdf.text-on-every-page
+	./plugins/pdf.truncated
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
