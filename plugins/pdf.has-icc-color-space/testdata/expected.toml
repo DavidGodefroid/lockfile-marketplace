@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "device-rgb.pdf"
+answer = 0
+
+[[case]]
+file = "cal-rgb.pdf"
+answer = 0
+
+[[case]]
+file = "icc-page.pdf"
+answer = 1
+
+[[case]]
+file = "icc-indexed.pdf"
+answer = 1
+
+[[case]]
+file = "icc-indirect.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "output-intent-only.pdf"
+answer = 0
