@@ -21,6 +21,7 @@ use (
 	./plugins/html.has-script-element
 	./plugins/image.decodes
 	./plugins/image.has-gps-exif
+	./plugins/image.has-icc-profile
 	./plugins/image.is-animated
 	./plugins/json.has-duplicate-keys
 	./plugins/json.nesting-over-64
