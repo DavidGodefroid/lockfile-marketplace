@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.pptx"
+answer = 0
+
+[[case]]
+file = "no-slide-rels.pptx"
+answer = 0
+
+[[case]]
+file = "notes-master-only.pptx"
+answer = 0
+
+[[case]]
+file = "notes.pptx"
+answer = 1
+
+[[case]]
+file = "notes-second-slide.pptx"
+answer = 1
+
+[[case]]
+file = "notes-strict.ppsx"
+answer = 1
