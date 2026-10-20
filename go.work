@@ -89,6 +89,7 @@ use (
 	./plugins/pdf.has-text-layer
 	./plugins/pdf.has-thumbnails
 	./plugins/pdf.has-title
+	./plugins/pdf.has-trailing-data
 	./plugins/pdf.has-transparency
 	./plugins/pdf.has-type3-font
 	./plugins/pdf.has-undecodable-stream

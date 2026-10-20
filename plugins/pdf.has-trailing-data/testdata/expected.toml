@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "clean.pdf"
+answer = 0
+
+[[case]]
+file = "no-final-eol.pdf"
+answer = 0
+
+[[case]]
+file = "eol-after-eof.pdf"
+answer = 0
+
+[[case]]
+file = "nul-padding.pdf"
+answer = 0
+
+[[case]]
+file = "incremental-update.pdf"
+answer = 0
+
+[[case]]
+file = "text-after-eof.pdf"
+answer = 1
+
+[[case]]
+file = "binary-after-eof.pdf"
+answer = 1
+
+[[case]]
+file = "junk-before-long-padding.pdf"
+answer = 1
