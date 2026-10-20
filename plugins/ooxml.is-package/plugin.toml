@@ -1,0 +1,8 @@
+name = "ooxml.is-package"
+version = "1.0.0"
+protocol = 1
+question = "Is the file an Office Open XML package with a main document part?"
+one = "the content types and the root relationships parse, and an internal officeDocument relationship targets a part present in the package"
+zero = "not a ZIP, no [Content_Types].xml or _rels/.rels, unparsable XML, or no internal officeDocument relationship to an existing part"
+accepts = ["*/*"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

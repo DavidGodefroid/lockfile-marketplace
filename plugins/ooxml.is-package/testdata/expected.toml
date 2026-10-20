@@ -1,0 +1,44 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty.bin"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "sample.docx"
+answer = 1
+
+[[case]]
+file = "sample.xlsx"
+answer = 1
+
+[[case]]
+file = "strict.docx"
+answer = 1
+
+[[case]]
+file = "plain.zip"
+answer = 0
+
+[[case]]
+file = "no-root-rels.docx"
+answer = 0
+
+[[case]]
+file = "bad-root-rels.docx"
+answer = 0
+
+[[case]]
+file = "missing-root-part.docx"
+answer = 0
+
+[[case]]
+file = "external-target.docx"
+answer = 0
+
+[[case]]
+file = "no-office-document.docx"
+answer = 0
