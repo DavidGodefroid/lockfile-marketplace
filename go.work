@@ -120,6 +120,7 @@ use (
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
+	./plugins/zip.has-comment
 	./plugins/zip.has-encrypted-entry
 	./plugins/zip.has-nested-archive
 	./plugins/zip.has-path-traversal
