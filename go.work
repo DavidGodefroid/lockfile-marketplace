@@ -11,6 +11,7 @@ use (
 	./plugins/file.over-10mib
 	./plugins/format.is-pdf
 	./plugins/html.has-script-element
+	./plugins/image.decodes
 	./plugins/json.parses
 	./plugins/ooxml.has-macros
 	./plugins/ooxml.is-package

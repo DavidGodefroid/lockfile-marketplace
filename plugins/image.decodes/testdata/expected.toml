@@ -1,0 +1,36 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "image.png"
+answer = 1
+
+[[case]]
+file = "image.jpg"
+answer = 1
+
+[[case]]
+file = "truncated.png"
+answer = 0
+
+[[case]]
+file = "truncated.jpg"
+answer = 0
+
+[[case]]
+file = "header-only.png"
+answer = 0
+
+[[case]]
+file = "at-pixel-limit.png"
+answer = 0
+
+[[case]]
+file = "image.gif"
+answer = 0
+
+[[case]]
+file = "sample.txt"
+answer = 0
+
+[[case]]
+file = "empty.bin"
+answer = 0
