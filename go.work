@@ -75,6 +75,7 @@ use (
 	./plugins/pdf.has-page-larger-than-a3
 	./plugins/pdf.has-page-transition
 	./plugins/pdf.has-piece-info
+	./plugins/pdf.has-postscript-xobject
 	./plugins/pdf.has-producer
 	./plugins/pdf.has-read-only-field
 	./plugins/pdf.has-redaction-annotation
