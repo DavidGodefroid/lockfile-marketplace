@@ -1,0 +1,8 @@
+name = "pdf.has-embedded-file"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF embed a file (an attachment)?"
+one  = "the catalog has a /Names /EmbeddedFiles tree, or some object is an embedded file stream (/Type /EmbeddedFile), a file specification with an /EF entry or a file attachment annotation"
+zero = "no embedded file: no /EmbeddedFiles tree, embedded file stream, /EF entry or file attachment annotation (a reference to an external file does not count)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }
