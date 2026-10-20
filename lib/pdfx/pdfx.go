@@ -47,8 +47,11 @@ func catch(err *error) {
 	}
 }
 
-// read reads without validating (PageCount is set).
-func read(r io.ReadSeeker) (ctx *model.Context, err error) {
+// Read reads a PDF without validating it (PageCount is set). It exists for
+// questions about objects that pdfcpu's validation rejects even in relaxed
+// mode, such as PostScript XObjects drawn from a page, where Open would turn
+// the answer into an error. Open stays the default for every other plugin.
+func Read(r io.ReadSeeker) (ctx *model.Context, err error) {
 	defer catch(&err)
 	ctx, err = api.ReadContext(context.Background(), r, config())
 	if err != nil {
@@ -63,7 +66,7 @@ func read(r io.ReadSeeker) (ctx *model.Context, err error) {
 // Open reads and validates a PDF in pdfcpu's relaxed mode.
 func Open(r io.ReadSeeker) (ctx *model.Context, err error) {
 	defer catch(&err)
-	ctx, err = read(r)
+	ctx, err = Read(r)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // readOnly reads without validation, for files validation would refuse.
 func readOnly(t *testing.T, d pdfxtest.Doc) *model.Context {
 	t.Helper()
-	ctx, err := read(bytes.NewReader(pdfxtest.Write(d)))
+	ctx, err := Read(bytes.NewReader(pdfxtest.Write(d)))
 	if err != nil {
 		t.Fatal(err)
 	}
