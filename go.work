@@ -123,6 +123,7 @@ use (
 	./plugins/zip.has-comment
 	./plugins/zip.has-duplicate-names
 	./plugins/zip.has-encrypted-entry
+	./plugins/zip.has-executable-entry
 	./plugins/zip.has-high-compression-ratio
 	./plugins/zip.has-nested-archive
 	./plugins/zip.has-path-traversal
