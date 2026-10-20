@@ -34,6 +34,7 @@ use (
 	./plugins/pdf.has-embedded-file
 	./plugins/pdf.has-external-link
 	./plugins/pdf.has-form-fields
+	./plugins/pdf.has-hidden-layer
 	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript
 	./plugins/pdf.has-launch-action
