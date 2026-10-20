@@ -78,6 +78,7 @@ use (
 	./plugins/pdf.has-piece-info
 	./plugins/pdf.has-postscript-xobject
 	./plugins/pdf.has-producer
+	./plugins/pdf.has-public-key-encryption
 	./plugins/pdf.has-read-only-field
 	./plugins/pdf.has-redaction-annotation
 	./plugins/pdf.has-remote-goto-action
