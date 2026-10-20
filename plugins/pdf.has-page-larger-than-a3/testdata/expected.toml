@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "a4.pdf"
+answer = 0
+
+[[case]]
+file = "a3-portrait.pdf"
+answer = 0
+
+[[case]]
+file = "a3-landscape.pdf"
+answer = 0
+
+[[case]]
+file = "a3-half-mm-over.pdf"
+answer = 0
+
+[[case]]
+file = "a2.pdf"
+answer = 1
+
+[[case]]
+file = "square-300mm.pdf"
+answer = 1
+
+[[case]]
+file = "strip-100x430mm.pdf"
+answer = 1
+
+[[case]]
+file = "a4-then-a2.pdf"
+answer = 1
+
+[[case]]
+file = "a2-media-a4-crop.pdf"
+answer = 0
+
+[[case]]
+file = "userunit-2-a4-box.pdf"
+answer = 1
