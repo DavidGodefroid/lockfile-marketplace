@@ -1,0 +1,44 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "protected.docx"
+answer = 1
+
+[[case]]
+file = "not-enforced.docx"
+answer = 1
+
+[[case]]
+file = "strict.docx"
+answer = 1
+
+[[case]]
+file = "renamed.docx"
+answer = 1
+
+[[case]]
+file = "absolute-target.docx"
+answer = 1
+
+[[case]]
+file = "unprotected.docx"
+answer = 0
+
+[[case]]
+file = "unreferenced.docx"
+answer = 0
+
+[[case]]
+file = "dangling.docx"
+answer = 0
+
+[[case]]
+file = "other-namespace.docx"
+answer = 0
+
+[[case]]
+file = "in-document.docx"
+answer = 0
