@@ -40,6 +40,7 @@ use (
 	./plugins/pdf.has-non-a4-page
 	./plugins/pdf.has-outline
 	./plugins/pdf.has-output-intent
+	./plugins/pdf.has-producer
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
 	./plugins/pdf.has-subject
