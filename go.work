@@ -32,6 +32,7 @@ use (
 	./plugins/pdf.has-author
 	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
+	./plugins/pdf.has-bleed-box
 	./plugins/pdf.has-calculated-field
 	./plugins/pdf.has-certification-signature
 	./plugins/pdf.has-creation-date
