@@ -16,6 +16,7 @@ use (
 	./plugins/file.non-empty
 	./plugins/file.over-10mib
 	./plugins/format.is-pdf
+	./plugins/html.has-form-element
 	./plugins/html.has-iframe-element
 	./plugins/html.has-script-element
 	./plugins/image.decodes
