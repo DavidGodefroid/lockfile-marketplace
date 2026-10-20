@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "pdfcpu-aes256.pdf"
+answer = 0
+
+[[case]]
+file = "pdfcpu-rc4-128.pdf"
+answer = 0
+
+[[case]]
+file = "key-absent.pdf"
+answer = 0
+
+[[case]]
+file = "metadata-true.pdf"
+answer = 0
+
+[[case]]
+file = "metadata-false.pdf"
+answer = 1
+
+[[case]]
+file = "metadata-false-indirect.pdf"
+answer = 1
+
+[[case]]
+file = "metadata-false-xref-stream.pdf"
+answer = 1

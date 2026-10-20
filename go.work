@@ -103,6 +103,7 @@ use (
 	./plugins/pdf.is-linearized
 	./plugins/pdf.is-portfolio
 	./plugins/pdf.is-tagged
+	./plugins/pdf.leaves-metadata-unencrypted
 	./plugins/pdf.needs-appearances
 	./plugins/pdf.needs-password
 	./plugins/pdf.opens-fullscreen
