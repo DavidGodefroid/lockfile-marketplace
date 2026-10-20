@@ -23,6 +23,7 @@ use (
 	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript
 	./plugins/pdf.has-launch-action
+	./plugins/pdf.has-markup-annotation
 	./plugins/pdf.has-mixed-orientation
 	./plugins/pdf.has-mixed-page-sizes
 	./plugins/pdf.has-non-a4-page
