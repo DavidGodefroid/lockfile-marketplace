@@ -13,6 +13,7 @@ use (
 	./plugins/pdf.has-blank-page
 	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript
+	./plugins/pdf.has-launch-action
 	./plugins/pdf.has-non-a4-page
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.needs-password
