@@ -1,0 +1,56 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "minimal.xml"
+answer = 0
+
+[[case]]
+file = "word-document.xml"
+answer = 0
+
+[[case]]
+file = "doctype-only.xml"
+answer = 0
+
+[[case]]
+file = "external-dtd.xml"
+answer = 0
+
+[[case]]
+file = "internal-entity.xml"
+answer = 0
+
+[[case]]
+file = "system-entity.xml"
+answer = 1
+
+[[case]]
+file = "public-entity.xml"
+answer = 1
+
+[[case]]
+file = "parameter-entity.xml"
+answer = 1
+
+[[case]]
+file = "unparsed-entity.xml"
+answer = 1
+
+[[case]]
+file = "entity-in-comment.xml"
+answer = 0
+
+[[case]]
+file = "entity-in-literal.xml"
+answer = 0
+
+[[case]]
+file = "entity-in-pi.xml"
+answer = 0
+
+[[case]]
+file = "latin1-entity.xml"
+answer = 1
+
+[[case]]
+file = "bom-entity.xml"
+answer = 1
