@@ -5,6 +5,7 @@ use (
 	./lib/formatx
 	./lib/pdfx
 	./plugins/csv.consistent-columns
+	./plugins/docx.has-attached-template
 	./plugins/docx.has-comments
 	./plugins/docx.has-embedded-object
 	./plugins/docx.has-tracked-changes
