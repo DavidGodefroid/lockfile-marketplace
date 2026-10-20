@@ -10,6 +10,7 @@ use (
 	./plugins/pdf.claims-pdfa
 	./plugins/pdf.claims-pdfua
 	./plugins/pdf.copying-restricted
+	./plugins/pdf.declares-language
 	./plugins/pdf.declares-version-2
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
