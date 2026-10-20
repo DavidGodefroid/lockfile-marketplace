@@ -136,6 +136,7 @@ use (
 	./plugins/xlsx.has-external-links
 	./plugins/xlsx.has-formulas
 	./plugins/xlsx.has-hidden-sheet
+	./plugins/xml.has-doctype
 	./plugins/xml.well-formed
 	./plugins/zip.has-comment
 	./plugins/zip.has-duplicate-names
