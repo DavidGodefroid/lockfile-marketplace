@@ -30,6 +30,7 @@ use (
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
 	./plugins/pdf.has-title
+	./plugins/pdf.has-xfa
 	./plugins/pdf.has-xmp-metadata
 	./plugins/pdf.has-xref-stream
 	./plugins/pdf.is-linearized
