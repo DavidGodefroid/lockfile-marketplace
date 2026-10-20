@@ -69,6 +69,7 @@ use (
 	./plugins/pdf.has-optional-content
 	./plugins/pdf.has-outline
 	./plugins/pdf.has-output-intent
+	./plugins/pdf.has-overprint
 	./plugins/pdf.has-pades-signature
 	./plugins/pdf.has-page-labels
 	./plugins/pdf.has-page-larger-than-a3
@@ -81,6 +82,7 @@ use (
 	./plugins/pdf.has-required-field
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
+	./plugins/pdf.has-spot-color
 	./plugins/pdf.has-subject
 	./plugins/pdf.has-submit-action
 	./plugins/pdf.has-text-layer
@@ -107,7 +109,6 @@ use (
 	./plugins/pdf.single-page
 	./plugins/pdf.text-on-every-page
 	./plugins/pdf.truncated
-	./plugins/pdf.has-spot-color
 	./plugins/text.has-bom
 	./plugins/text.valid-utf8
 	./plugins/xml.well-formed
