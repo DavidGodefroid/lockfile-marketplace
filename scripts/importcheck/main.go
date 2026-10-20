@@ -29,8 +29,9 @@ var denied = []string{"net", "net/", "os/exec", "plugin", "unsafe", "syscall", "
 
 // inRepo are the only modules a plugin may replace, with a relative path.
 var inRepo = map[string]bool{
-	"github.com/DavidGodefroid/lockfile-marketplace/sdk":      true,
-	"github.com/DavidGodefroid/lockfile-marketplace/lib/pdfx": true,
+	"github.com/DavidGodefroid/lockfile-marketplace/sdk":         true,
+	"github.com/DavidGodefroid/lockfile-marketplace/lib/pdfx":    true,
+	"github.com/DavidGodefroid/lockfile-marketplace/lib/formatx": true,
 }
 
 func isDenied(path string) bool {
