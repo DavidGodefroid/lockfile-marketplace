@@ -54,6 +54,7 @@ use (
 	./plugins/pdf.has-signature
 	./plugins/pdf.has-subject
 	./plugins/pdf.has-text-layer
+	./plugins/pdf.has-thumbnails
 	./plugins/pdf.has-title
 	./plugins/pdf.has-xfa
 	./plugins/pdf.has-xmp-metadata
