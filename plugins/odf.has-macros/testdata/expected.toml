@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.odt"
+answer = 0
+
+[[case]]
+file = "basic.odt"
+answer = 1
+
+[[case]]
+file = "scripts.ods"
+answer = 1
+
+[[case]]
+file = "empty-basic-dir.odt"
+answer = 0
+
+[[case]]
+file = "nested-basic.odt"
+answer = 0

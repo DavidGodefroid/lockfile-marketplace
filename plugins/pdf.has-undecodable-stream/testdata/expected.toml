@@ -1,0 +1,44 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "flate.pdf"
+answer = 0
+
+[[case]]
+file = "filter-chain.pdf"
+answer = 0
+
+[[case]]
+file = "object-stream.pdf"
+answer = 0
+
+[[case]]
+file = "dct-image.pdf"
+answer = 0
+
+[[case]]
+file = "ccitt-image.pdf"
+answer = 0
+
+[[case]]
+file = "corrupt-flate.pdf"
+answer = 1
+
+[[case]]
+file = "corrupt-in-object-stream-file.pdf"
+answer = 1
+
+[[case]]
+file = "corrupt-hex.pdf"
+answer = 1
+
+[[case]]
+file = "corrupt-chain.pdf"
+answer = 1
+
+[[case]]
+file = "unknown-filter.pdf"
+answer = 1

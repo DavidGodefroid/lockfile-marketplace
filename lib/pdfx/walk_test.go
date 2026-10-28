@@ -73,7 +73,7 @@ func TestEachObjectCycle(t *testing.T) {
 
 func TestEachObjectDepthCap(t *testing.T) {
 	deep := strings.Repeat("[", MaxDepth+1) + strings.Repeat("]", MaxDepth+1)
-	ctx, err := read(bytes.NewReader(pdfxtest.Write(pdfxtest.Doc{Pages: []pdfxtest.Page{{}}, Objects: []string{deep}})))
+	ctx, err := Read(bytes.NewReader(pdfxtest.Write(pdfxtest.Doc{Pages: []pdfxtest.Page{{}}, Objects: []string{deep}})))
 	if err != nil {
 		t.Skipf("pdfcpu refuses the nesting itself: %v", err)
 	}

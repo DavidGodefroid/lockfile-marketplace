@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.epub"
+answer = 0
+
+[[case]]
+file = "encryption-elsewhere.epub"
+answer = 0
+
+[[case]]
+file = "encryption-wrong-case.epub"
+answer = 0
+
+[[case]]
+file = "encryption-dir.epub"
+answer = 0
+
+[[case]]
+file = "signatures-only.epub"
+answer = 0
+
+[[case]]
+file = "encrypted.epub"
+answer = 1
+
+[[case]]
+file = "encrypted-stored.epub"
+answer = 1
+
+[[case]]
+file = "encrypted-empty.epub"
+answer = 1

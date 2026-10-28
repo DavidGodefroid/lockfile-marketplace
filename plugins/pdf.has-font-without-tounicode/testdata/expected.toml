@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-fonts.pdf"
+answer = 0
+
+[[case]]
+file = "winansi.pdf"
+answer = 0
+
+[[case]]
+file = "base-encoding.pdf"
+answer = 0
+
+[[case]]
+file = "simple-tounicode.pdf"
+answer = 0
+
+[[case]]
+file = "type0-tounicode.pdf"
+answer = 0
+
+[[case]]
+file = "no-encoding.pdf"
+answer = 1
+
+[[case]]
+file = "differences-only.pdf"
+answer = 1
+
+[[case]]
+file = "type3.pdf"
+answer = 1
+
+[[case]]
+file = "type0-no-tounicode.pdf"
+answer = 1
+
+[[case]]
+file = "unused-font.pdf"
+answer = 1

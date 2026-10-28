@@ -1,0 +1,8 @@
+name = "pdf.has-remote-goto-action"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF contain a remote go-to action (one that jumps into another PDF file or an embedded file)?"
+one  = "some object is a remote or embedded go-to action (/S /GoToR or /S /GoToE)"
+zero = "no remote or embedded go-to action"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

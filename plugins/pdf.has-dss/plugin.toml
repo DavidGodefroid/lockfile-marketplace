@@ -1,0 +1,8 @@
+name = "pdf.has-dss"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF carry a Document Security Store (long-term validation data)?"
+one  = "the catalog has a /DSS dictionary; its certificates, OCSP responses and CRLs are not checked"
+zero = "the catalog has no /DSS entry"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

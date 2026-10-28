@@ -5,18 +5,39 @@ use (
 	./lib/formatx
 	./lib/pdfx
 	./plugins/csv.consistent-columns
+	./plugins/docx.has-attached-template
 	./plugins/docx.has-comments
+	./plugins/docx.has-document-protection
+	./plugins/docx.has-embedded-object
+	./plugins/docx.has-field-codes
+	./plugins/docx.has-hidden-text
 	./plugins/docx.has-tracked-changes
+	./plugins/eml.has-attachment
+	./plugins/epub.has-encryption
 	./plugins/file.non-empty
 	./plugins/file.over-10mib
 	./plugins/format.is-pdf
+	./plugins/html.has-form-element
+	./plugins/html.has-iframe-element
 	./plugins/html.has-script-element
 	./plugins/image.decodes
 	./plugins/image.has-gps-exif
+	./plugins/image.has-icc-profile
+	./plugins/image.has-trailing-data
+	./plugins/image.is-animated
+	./plugins/image.is-cmyk-jpeg
+	./plugins/json.has-duplicate-keys
+	./plugins/json.nesting-over-64
 	./plugins/json.parses
+	./plugins/odf.has-macros
+	./plugins/ooxml.has-digital-signature
+	./plugins/ooxml.has-external-relationship
 	./plugins/ooxml.has-macros
+	./plugins/ooxml.has-thumbnail
 	./plugins/ooxml.is-package
 	./plugins/pdf.all-pages-blank
+	./plugins/pdf.annotations-lack-tab-order
+	./plugins/pdf.claims-facturx
 	./plugins/pdf.claims-pdfa
 	./plugins/pdf.claims-pdfua
 	./plugins/pdf.claims-pdfx
@@ -25,43 +46,122 @@ use (
 	./plugins/pdf.declares-version-2
 	./plugins/pdf.encrypted
 	./plugins/pdf.fonts-not-embedded
+	./plugins/pdf.has-3d-annotation
+	./plugins/pdf.has-associated-files
+	./plugins/pdf.has-author
 	./plugins/pdf.has-auto-action
 	./plugins/pdf.has-blank-page
+	./plugins/pdf.has-bleed-box
+	./plugins/pdf.has-calculated-field
+	./plugins/pdf.has-ccitt-image
+	./plugins/pdf.has-certification-signature
+	./plugins/pdf.has-cid-font
+	./plugins/pdf.has-cmyk-image
+	./plugins/pdf.has-creation-date
+	./plugins/pdf.has-creator-tool
+	./plugins/pdf.has-cropped-page
+	./plugins/pdf.has-custom-info-key
+	./plugins/pdf.has-document-timestamp
+	./plugins/pdf.has-dss
 	./plugins/pdf.has-embedded-file
 	./plugins/pdf.has-external-link
+	./plugins/pdf.has-figure-without-alt
+	./plugins/pdf.has-font-without-tounicode
 	./plugins/pdf.has-form-fields
+	./plugins/pdf.has-hidden-annotation
+	./plugins/pdf.has-hidden-layer
+	./plugins/pdf.has-icc-color-space
+	./plugins/pdf.has-image
 	./plugins/pdf.has-incremental-update
 	./plugins/pdf.has-javascript
+	./plugins/pdf.has-jbig2-image
+	./plugins/pdf.has-jpeg2000-image
 	./plugins/pdf.has-launch-action
+	./plugins/pdf.has-lzw-stream
 	./plugins/pdf.has-markup-annotation
 	./plugins/pdf.has-mixed-orientation
 	./plugins/pdf.has-mixed-page-sizes
+	./plugins/pdf.has-modification-date
+	./plugins/pdf.has-multimedia-annotation
+	./plugins/pdf.has-multiple-signatures
+	./plugins/pdf.has-named-destinations
 	./plugins/pdf.has-non-a4-page
+	./plugins/pdf.has-optional-content
 	./plugins/pdf.has-outline
 	./plugins/pdf.has-output-intent
+	./plugins/pdf.has-overprint
+	./plugins/pdf.has-pades-signature
+	./plugins/pdf.has-page-labels
+	./plugins/pdf.has-page-larger-than-a3
+	./plugins/pdf.has-page-transition
+	./plugins/pdf.has-piece-info
+	./plugins/pdf.has-postscript-xobject
+	./plugins/pdf.has-producer
+	./plugins/pdf.has-public-key-encryption
+	./plugins/pdf.has-read-only-field
+	./plugins/pdf.has-redaction-annotation
+	./plugins/pdf.has-remote-goto-action
+	./plugins/pdf.has-required-field
 	./plugins/pdf.has-rotated-page
 	./plugins/pdf.has-signature
+	./plugins/pdf.has-spot-color
+	./plugins/pdf.has-subject
+	./plugins/pdf.has-submit-action
 	./plugins/pdf.has-text-layer
+	./plugins/pdf.has-thumbnails
 	./plugins/pdf.has-title
+	./plugins/pdf.has-trailing-data
+	./plugins/pdf.has-transparency
+	./plugins/pdf.has-type3-font
+	./plugins/pdf.has-undecodable-stream
+	./plugins/pdf.has-unsigned-signature-field
+	./plugins/pdf.has-viewer-preferences
 	./plugins/pdf.has-xfa
 	./plugins/pdf.has-xmp-metadata
 	./plugins/pdf.has-xref-stream
 	./plugins/pdf.image-only
 	./plugins/pdf.is-linearized
+	./plugins/pdf.is-portfolio
 	./plugins/pdf.is-tagged
+	./plugins/pdf.leaves-metadata-unencrypted
+	./plugins/pdf.needs-appearances
 	./plugins/pdf.needs-password
+	./plugins/pdf.opens-fullscreen
+	./plugins/pdf.over-100-pages
 	./plugins/pdf.parses
 	./plugins/pdf.printing-restricted
 	./plugins/pdf.signature-covers-whole-file
 	./plugins/pdf.single-page
+	./plugins/pdf.text-on-every-page
 	./plugins/pdf.truncated
+	./plugins/pdf.uses-aes256-encryption
+	./plugins/pdf.uses-rc4-encryption
+	./plugins/pptx.has-hidden-slide
+	./plugins/pptx.has-speaker-notes
+	./plugins/rtf.has-embedded-object
+	./plugins/svg.has-script
+	./plugins/text.has-bidi-control
 	./plugins/text.has-bom
+	./plugins/text.has-mixed-line-endings
+	./plugins/text.has-nul-byte
 	./plugins/text.valid-utf8
+	./plugins/xlsx.has-external-links
+	./plugins/xlsx.has-formulas
+	./plugins/xlsx.has-hidden-sheet
+	./plugins/xml.has-doctype
+	./plugins/xml.has-external-entity
 	./plugins/xml.well-formed
+	./plugins/zip.has-comment
+	./plugins/zip.has-duplicate-names
 	./plugins/zip.has-encrypted-entry
+	./plugins/zip.has-executable-entry
+	./plugins/zip.has-high-compression-ratio
 	./plugins/zip.has-nested-archive
 	./plugins/zip.has-path-traversal
+	./plugins/zip.has-prepended-data
+	./plugins/zip.has-symlink-entry
 	./plugins/zip.parses
+	./plugins/zip.uses-zip64
 	./scripts/importcheck
 	./scripts/relcheck
 	./scripts/wfcheck

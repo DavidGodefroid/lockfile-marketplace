@@ -1,0 +1,8 @@
+name = "eml.has-attachment"
+version = "1.0.0"
+protocol = 1
+question = "Does the e-mail message carry an attachment?"
+one = "a MIME part, at any multipart depth up to 32, has Content-Disposition: attachment, or is a non-text, non-multipart part with a filename parameter"
+zero = "no such part: only text parts, inline parts without a filename, and multipart containers"
+accepts = ["*/*"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

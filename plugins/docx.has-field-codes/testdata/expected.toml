@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "simple-field.docx"
+answer = 1
+
+[[case]]
+file = "complex-field.docx"
+answer = 1
+
+[[case]]
+file = "strict-field.docx"
+answer = 1
+
+[[case]]
+file = "fldchar-only.docx"
+answer = 0
+
+[[case]]
+file = "foreign-field.docx"
+answer = 0
+
+[[case]]
+file = "header-field.docx"
+answer = 0

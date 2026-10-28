@@ -1,0 +1,16 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-dss.pdf"
+answer = 0
+
+[[case]]
+file = "dss.pdf"
+answer = 1
+
+[[case]]
+file = "empty-dss.pdf"
+answer = 1
+
+[[case]]
+file = "null-dss.pdf"
+answer = 0

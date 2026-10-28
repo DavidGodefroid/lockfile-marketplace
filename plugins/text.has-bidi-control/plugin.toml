@@ -1,0 +1,8 @@
+name = "text.has-bidi-control"
+version = "1.0.0"
+protocol = 1
+question = "Does the UTF-8 text hold a bidirectional override or isolate control?"
+one = "the file is valid UTF-8 and holds at least one bidi embedding, override or isolate control (U+202A to U+202E, U+2066 to U+2069), which can make displayed text read differently from its stored order"
+zero = "the file is valid UTF-8 with no such control; an empty file has none"
+accepts = ["*/*"]
+limits = { cpu_s = 10, memory = "128MiB", timeout_s = 20 }

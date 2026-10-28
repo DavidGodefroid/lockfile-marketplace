@@ -1,0 +1,8 @@
+name = "pdf.has-unsigned-signature-field"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF have an unsigned signature field?"
+one  = "some terminal signature field (/FT /Sig, inherited) of the AcroForm field tree has no value (/V absent or null, on the field and its ancestors)"
+zero = "no such field (no form, no signature field, or every signature field has a value)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

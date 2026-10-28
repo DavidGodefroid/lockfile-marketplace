@@ -1,0 +1,8 @@
+name = "pdf.has-undecodable-stream"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF have a stream whose data fails to decode with its declared filters?"
+one  = "some stream (orphans included) fails to decode with its declared filters: corrupt data or an unknown filter; streams with a DCT, JPX, JBIG2 or CCITT image filter are not decoded and do not count"
+zero = "every other stream decodes with its declared filters"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

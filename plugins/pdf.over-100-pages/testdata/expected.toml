@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "zero-pages.pdf"
+answer = 0
+
+[[case]]
+file = "one-page.pdf"
+answer = 0
+
+[[case]]
+file = "100-pages.pdf"
+answer = 0
+
+[[case]]
+file = "101-pages.pdf"
+answer = 1
+
+[[case]]
+file = "250-pages.pdf"
+answer = 1

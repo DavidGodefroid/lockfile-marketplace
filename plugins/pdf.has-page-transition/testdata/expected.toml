@@ -1,0 +1,24 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-transition.pdf"
+answer = 0
+
+[[case]]
+file = "trans-page-1.pdf"
+answer = 1
+
+[[case]]
+file = "trans-ref-page-3-of-3.pdf"
+answer = 1
+
+[[case]]
+file = "dur-page-2-of-2.pdf"
+answer = 1
+
+[[case]]
+file = "trans-null.pdf"
+answer = 0
+
+[[case]]
+file = "trans-unreferenced.pdf"
+answer = 0

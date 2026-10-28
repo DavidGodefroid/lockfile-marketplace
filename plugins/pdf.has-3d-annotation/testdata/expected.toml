@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "3d.pdf"
+answer = 1
+
+[[case]]
+file = "3d-second-page.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "square-only.pdf"
+answer = 0
+
+[[case]]
+file = "text-note-only.pdf"
+answer = 0
+
+[[case]]
+file = "unlisted.pdf"
+answer = 0

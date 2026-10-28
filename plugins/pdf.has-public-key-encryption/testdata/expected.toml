@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "plain-xref-stream.pdf"
+answer = 0
+
+[[case]]
+file = "standard-rc4-40.pdf"
+answer = 0
+
+[[case]]
+file = "standard-aes-128.pdf"
+answer = 0
+
+[[case]]
+file = "standard-aes-256.pdf"
+answer = 0
+
+[[case]]
+file = "standard-r6.pdf"
+answer = 0
+
+[[case]]
+file = "pubsec.pdf"
+answer = 1
+
+[[case]]
+file = "pubsec-direct.pdf"
+answer = 1
+
+[[case]]
+file = "pubsec-xref-stream.pdf"
+answer = 1
+
+[[case]]
+file = "other-handler.pdf"
+answer = 1

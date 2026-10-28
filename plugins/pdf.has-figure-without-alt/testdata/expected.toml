@@ -1,0 +1,52 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "untagged.pdf"
+answer = 0
+
+[[case]]
+file = "empty-tree.pdf"
+answer = 0
+
+[[case]]
+file = "no-figure.pdf"
+answer = 0
+
+[[case]]
+file = "figure-without-alt.pdf"
+answer = 1
+
+[[case]]
+file = "figure-with-alt.pdf"
+answer = 0
+
+[[case]]
+file = "figure-with-empty-alt.pdf"
+answer = 0
+
+[[case]]
+file = "figure-with-actual-text.pdf"
+answer = 0
+
+[[case]]
+file = "figure-null-alt.pdf"
+answer = 1
+
+[[case]]
+file = "mapped-figure-without-alt.pdf"
+answer = 1
+
+[[case]]
+file = "mapped-figure-with-alt.pdf"
+answer = 0
+
+[[case]]
+file = "figure-mapped-away.pdf"
+answer = 0
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "second-figure-without-alt.pdf"
+answer = 1

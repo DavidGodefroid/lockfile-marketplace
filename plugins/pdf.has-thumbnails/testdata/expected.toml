@@ -1,0 +1,16 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "no-thumb.pdf"
+answer = 0
+
+[[case]]
+file = "thumb-page-1.pdf"
+answer = 1
+
+[[case]]
+file = "thumb-page-3-of-3.pdf"
+answer = 1
+
+[[case]]
+file = "thumb-unreferenced.pdf"
+answer = 0

@@ -1,0 +1,8 @@
+name = "svg.has-script"
+version = "1.0.0"
+protocol = 1
+question = "Does the SVG document hold a script element or an event-handler attribute?"
+one = "a well-formed XML document whose root is svg in the SVG namespace holds an element named script (any namespace) or an unprefixed attribute whose name starts with \"on\""
+zero = "an SVG document with neither a script element nor an on* attribute"
+accepts = ["*/*"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

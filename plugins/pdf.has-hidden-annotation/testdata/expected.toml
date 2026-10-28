@@ -1,0 +1,48 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "hidden.pdf"
+answer = 1
+
+[[case]]
+file = "no-view.pdf"
+answer = 1
+
+[[case]]
+file = "hidden-and-print.pdf"
+answer = 1
+
+[[case]]
+file = "hidden-second-page.pdf"
+answer = 1
+
+[[case]]
+file = "hidden-object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "indirect-flags.pdf"
+answer = 1
+
+[[case]]
+file = "after-visible.pdf"
+answer = 1
+
+[[case]]
+file = "no-flags.pdf"
+answer = 0
+
+[[case]]
+file = "print-only.pdf"
+answer = 0
+
+[[case]]
+file = "invisible-not-hidden.pdf"
+answer = 0
+
+[[case]]
+file = "unlisted.pdf"
+answer = 0

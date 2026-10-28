@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty-archive.zip"
+answer = 0
+
+[[case]]
+file = "classic.zip"
+answer = 0
+
+[[case]]
+file = "sample.docx"
+answer = 0
+
+[[case]]
+file = "other-extra.zip"
+answer = 0
+
+[[case]]
+file = "zip64-size.zip"
+answer = 1
+
+[[case]]
+file = "zip64-end.zip"
+answer = 1
+
+[[case]]
+file = "zip64-end-unneeded.zip"
+answer = 1

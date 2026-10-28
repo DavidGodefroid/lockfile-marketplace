@@ -1,0 +1,20 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "overprint-off.pdf"
+answer = 0
+
+[[case]]
+file = "stroke-overprint.pdf"
+answer = 1
+
+[[case]]
+file = "fill-overprint.pdf"
+answer = 1
+
+[[case]]
+file = "overprint-indirect.pdf"
+answer = 1

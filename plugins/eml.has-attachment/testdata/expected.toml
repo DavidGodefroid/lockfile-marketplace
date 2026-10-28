@@ -1,0 +1,52 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.eml"
+answer = 0
+
+[[case]]
+file = "no-content-type.eml"
+answer = 0
+
+[[case]]
+file = "alternative.eml"
+answer = 0
+
+[[case]]
+file = "mixed-attachment.eml"
+answer = 1
+
+[[case]]
+file = "nested-attachment.eml"
+answer = 1
+
+[[case]]
+file = "text-attachment.eml"
+answer = 1
+
+[[case]]
+file = "inline-image-filename.eml"
+answer = 1
+
+[[case]]
+file = "rfc2231-filename.eml"
+answer = 1
+
+[[case]]
+file = "inline-image-no-filename.eml"
+answer = 0
+
+[[case]]
+file = "inline-text-filename.eml"
+answer = 0
+
+[[case]]
+file = "single-part-attachment.eml"
+answer = 1
+
+[[case]]
+file = "depth-32.eml"
+answer = 0
+
+[[case]]
+file = "wrapper-boundary-in-body.eml"
+answer = 1

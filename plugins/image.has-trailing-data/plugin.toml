@@ -1,0 +1,8 @@
+name = "image.has-trailing-data"
+version = "1.0.0"
+protocol = 1
+question = "Do bytes follow the end of the PNG or JPEG image?"
+one = "at least one byte follows the PNG IEND chunk or the JPEG EOI marker (polyglot or appended payload)"
+zero = "the file ends exactly with the PNG IEND chunk or the JPEG EOI marker"
+accepts = ["*/*"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

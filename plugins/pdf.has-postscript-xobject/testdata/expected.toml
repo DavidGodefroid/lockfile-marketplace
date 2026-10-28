@@ -1,0 +1,32 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "form.pdf"
+answer = 0
+
+[[case]]
+file = "ps-xobject.pdf"
+answer = 1
+
+[[case]]
+file = "form-subtype2-ps.pdf"
+answer = 1
+
+[[case]]
+file = "image-subtype2-ps.pdf"
+answer = 0
+
+[[case]]
+file = "orphan-ps.pdf"
+answer = 1
+
+[[case]]
+file = "dict-ps.pdf"
+answer = 0
+
+[[case]]
+file = "indirect-subtype.pdf"
+answer = 1

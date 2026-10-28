@@ -1,0 +1,28 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "empty-archive.zip"
+answer = 0
+
+[[case]]
+file = "unique.zip"
+answer = 0
+
+[[case]]
+file = "case-differs.zip"
+answer = 0
+
+[[case]]
+file = "path-differs.zip"
+answer = 0
+
+[[case]]
+file = "duplicate.zip"
+answer = 1
+
+[[case]]
+file = "duplicate-dir.zip"
+answer = 1
+
+[[case]]
+file = "duplicate-stored.zip"
+answer = 1

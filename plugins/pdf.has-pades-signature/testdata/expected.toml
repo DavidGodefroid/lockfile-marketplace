@@ -1,0 +1,40 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "pades.pdf"
+answer = 1
+
+[[case]]
+file = "adbe-only.pdf"
+answer = 0
+
+[[case]]
+file = "adbe-sha1.pdf"
+answer = 0
+
+[[case]]
+file = "timestamp-only.pdf"
+answer = 0
+
+[[case]]
+file = "adbe-then-pades.pdf"
+answer = 1
+
+[[case]]
+file = "inherited-type.pdf"
+answer = 1
+
+[[case]]
+file = "object-stream.pdf"
+answer = 1
+
+[[case]]
+file = "unsigned-field.pdf"
+answer = 0
+
+[[case]]
+file = "orphan-pades.pdf"
+answer = 0

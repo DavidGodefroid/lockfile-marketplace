@@ -1,0 +1,8 @@
+name = "pdf.has-modification-date"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF record a modification date in its metadata?"
+one  = "the document information dictionary has a non-empty /ModDate, or the catalog XMP has an xmp:ModifyDate property; the date is never read beyond being empty or not"
+zero = "no non-empty /ModDate and no xmp:ModifyDate in the catalog XMP"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

@@ -1,0 +1,8 @@
+name = "pdf.has-pades-signature"
+version = "1.0.0"
+protocol = 1
+question = "Does the PDF carry a PAdES signature?"
+one  = "a signature field (/FT /Sig, inherited) of the AcroForm field tree has a value with a /ByteRange, a /Contents and /SubFilter /ETSI.CAdES.detached; no signature is verified"
+zero = "no such signature value (no form, no signature field, empty signature fields, or only adbe.* or ETSI.RFC3161 sub-filters)"
+accepts = ["application/pdf"]
+limits = { cpu_s = 20, memory = "512MiB", timeout_s = 30 }

@@ -1,0 +1,44 @@
+# Fixtures are written by fixtures_test.go.
+[[case]]
+file = "plain.pdf"
+answer = 0
+
+[[case]]
+file = "tabs-s.pdf"
+answer = 0
+
+[[case]]
+file = "no-tabs.pdf"
+answer = 1
+
+[[case]]
+file = "tabs-row.pdf"
+answer = 1
+
+[[case]]
+file = "tabs-column.pdf"
+answer = 1
+
+[[case]]
+file = "second-page-lacks.pdf"
+answer = 1
+
+[[case]]
+file = "bare-page-without-annots.pdf"
+answer = 0
+
+[[case]]
+file = "empty-annots.pdf"
+answer = 0
+
+[[case]]
+file = "tabs-indirect.pdf"
+answer = 0
+
+[[case]]
+file = "object-stream.pdf"
+answer = 0
+
+[[case]]
+file = "unlisted.pdf"
+answer = 0
