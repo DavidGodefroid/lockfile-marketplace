@@ -1,0 +1,8 @@
+[[case]]
+file = "yes.txt"
+inputs = { needle = "zebra-77" }
+answer = 1
+
+[[case]]
+file = "no.txt"
+answer = 0

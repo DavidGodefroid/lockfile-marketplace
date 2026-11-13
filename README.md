@@ -5,7 +5,9 @@ The official plugin marketplace of [lockfile](https://github.com/DavidGodefroid/
 A lockfile plugin answers exactly one yes/no question about one file, fixed
 in its signed manifest (`plugin.toml`), and the only thing that leaves it is
 `1` or `0`. lockfile runs it in a sandbox (Landlock, seccomp, rlimits) with
-the file as read-only fd 3, no path, no network and no other input.
+the file as read-only fd 3, no path, no network and no other input. A
+protocol-2 plugin may also get values the human types for its question's
+`${name}` placeholders (fd 6), and write a detail for the human only (fd 7).
 
 - `sdk/`: what a plugin's `main` calls (`sdk.Main`), and the conformance
   harness every plugin's tests run (`sdk/harness`).

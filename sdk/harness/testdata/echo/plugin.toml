@@ -1,0 +1,10 @@
+name = "test.echo"
+version = "1.0.0"
+protocol = 2
+question = "Does the file contain ${needle}?"
+one = "the file contains the typed text"
+zero = "the file does not contain the typed text"
+accepts = ["*/*"]
+limits = { cpu_s = 2, memory = "256MiB", timeout_s = 2 }
+inputs = [{ name = "needle", kind = "text", max_bytes = 64 }]
+detail = true
