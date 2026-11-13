@@ -30,6 +30,32 @@ The reviewer checks what CI cannot:
 - [ ] Dependencies are pinned and reviewed; a new dependency is justified.
 - [ ] A changed `question`, `one` or `zero` is a new major version.
 
+A protocol-2 plugin (`inputs`, `detail`) gets the checks above and these.
+CI already checks the manifest bounds (at most 4 inputs, each named in the
+question as `${name}`, valid `kind` and `max_bytes`), that every fixture
+gives each input a value that fits it, and that the detail of a fixture run
+does not contain a typed value. The reviewer checks:
+
+- [ ] No value hard-coded in the code (`contains "John Doe"?`): it is a
+      parameter in disguise. Class detectors ("contains an IBAN-shaped
+      string") are allowed; a search for given content goes only through an
+      `inputs` slot.
+- [ ] Each input has the narrowest `kind` (`text`, `email`, `digits`) and
+      the smallest `max_bytes` the question needs.
+- [ ] No threshold families through inputs: an input that is a number
+      compared against the file (`is the amount above ${n}?`) is refused,
+      as it would be a binary search on a value of the file.
+- [ ] The code reads inputs only through `sdk.Inputs()` and uses them only
+      for the stated question.
+- [ ] No typed value ever leaves the plugin: not on stdout or stderr, in an
+      error, a panic message, a log or the detail, not even partly (a
+      prefix, a length, a hash).
+- [ ] `detail` is justified, holds only what the human needs to act
+      (`found on pages 4512, 12307`), stays under 4 KiB, and never echoes a
+      typed value.
+- [ ] Adding, removing or changing an input (`name`, `kind`, `max_bytes`)
+      or `detail` is a new major version, like a changed `question`.
+
 Examples of questions that are refused: "is the addressee a woman?", "is the
 amount above 10 000?", "does page 2 contain the word X?". They are about
 what the file says.
